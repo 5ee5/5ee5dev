@@ -99,11 +99,11 @@ section {
 /* Centered repo list with spacing and rounded buttons */
 .repo-lists {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
   width: 100%;
 }
 
