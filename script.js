@@ -70,20 +70,21 @@ function typeNextItem() {
   typeChar();
 }
 
-// Load top 5 recent commits for dropdown
+// Show only the latest commit
 function loadHeaderCommits(username, repo) {
   fetch(`https://api.github.com/repos/${username}/${repo}/commits`)
     .then((res) => res.json())
     .then((commits) => {
       const container = document.getElementById("commit-dropdown-list");
-      commits.slice(0, 5).forEach((commit) => {
+      const commit = commits[0];
+      if (commit) {
         const date = new Date(commit.commit.committer.date).toLocaleString();
         const a = document.createElement("a");
         a.href = commit.html_url;
         a.target = "_blank";
         a.innerHTML = `<strong>${commit.commit.message}</strong><br><small>${date}</small>`;
         container.appendChild(a);
-      });
+      }
     })
     .catch((err) => {
       console.error("Dropdown commit fetch failed:", err);
