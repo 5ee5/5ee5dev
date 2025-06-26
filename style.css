@@ -1,187 +1,247 @@
 :root {
-  --primary-color: #FFFD37;
-  --background-color: black;
-  --hover-color: #FFFD37;
-  --text-color: white;
+    --primary-color: #fffd37;
+    --background-color: black;
+    --hover-color: #fffd37;
+    --text-color: white;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: var(--background-color);
-  color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 header {
-  background: var(--primary-color);
-  color: black;
-  padding: 1rem 0;
-  text-align: center;
+    background: var(--primary-color);
+    color: black;
+    padding: 1rem 0;
+    text-align: center;
+    position: relative;
 }
 
 main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
 #content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  width: 100%;
-  max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 #profile-container,
 #github-section {
-  flex: 1;
-  padding: 20px;
-  box-sizing: border-box;
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 #profile-container {
-  max-width: 400px;
+    max-width: 400px;
 }
 
 #github-section {
-  max-width: 700px;
+    max-width: 700px;
 }
 
 #bio {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .circle-image {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: transform 0.3s;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s;
 }
 
 section {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 #github-section {
-  text-align: center;
-  background-color: var(--background-color);
+    text-align: center;
+    background-color: var(--background-color);
 }
 
 #github-section h2 {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #text {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 #github-section a {
-  color: var(--text-color);
-  text-decoration: none;
-  margin-right: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-right: 10px;
 }
 
 #github-section a:hover {
-  color: var(--hover-color);
+    color: var(--hover-color);
 }
 
-/* Centered repo list with spacing and rounded buttons */
 .repo-lists {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
-  width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 #repo-list-1,
 #repo-list-2 {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 #repo-list-1 li,
 #repo-list-2 li {
-  width: 100%;
-  max-width: 300px;
-  text-align: center;
-  margin: 10px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    margin: 10px;
 }
 
 #repo-list-1 a,
 #repo-list-2 a {
-  display: block;
-  padding: 12px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: white;
-  color: black;
-  border: none;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: background-color 0.3s, transform 0.3s;
-  width: 100%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    display: block;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 #repo-list-1 a:hover,
 #repo-list-2 a:hover {
-  background-color: var(--background-color);
-  transform: scale(1.05);
-  color: var(--primary-color);
+    background-color: var(--background-color);
+    transform: scale(1.05);
+    color: var(--primary-color);
 }
 
-/* Typing effect list */
 #typing-list {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 10px;
-  text-align: left;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+    text-align: left;
 }
 
 #typing-list li {
-  color: white;
-  font-size: 18px;
-  line-height: 1.6;
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 #typing-list li span::after {
-  content: '|';
-  animation: blink 1s infinite;
+    content: "|";
+    animation: blink 1s infinite;
 }
 
 @keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0;
+    }
 }
 
-/* Responsive layout for wider screens */
 @media (min-width: 768px) {
-  #content {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+    #content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
 
-  .repo-lists {
-    flex-direction: row;
-    gap: 40px;
-  }
+    .repo-lists {
+        flex-direction: row;
+        gap: 40px;
+    }
+}
+
+/* Commit dropdown in header */
+.commit-dropdown {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.dropbtn {
+    background-color: black;
+    color: var(--primary-color);
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #1c1c1c;
+    min-width: 250px;
+    max-width: 300px;
+    overflow-wrap: break-word;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    border-bottom: 1px solid #333;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content small {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.commit-dropdown:hover .dropdown-content {
+    display: block;
 }

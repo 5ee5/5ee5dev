@@ -2,10 +2,8 @@ const username = "5ee5";
 const repoList1 = document.getElementById("repo-list-1");
 const repoList2 = document.getElementById("repo-list-2");
 
-// Fetch and display repositories
+// Display repository links
 function displayRepos(repos) {
-  console.log("Fetched repos:", repos); // Debug
-
   if (!repos || repos.length === 0) {
     const msg = document.createElement("p");
     msg.textContent = "No public repositories found.";
@@ -31,7 +29,7 @@ function createRepoLink(repo, repoList) {
   repoList.appendChild(listItem);
 }
 
-// Fetch from GitHub
+// Fetch and display repository list
 fetch(`https://api.github.com/users/${username}/repos`)
   .then((response) => response.json())
   .then((repos) => displayRepos(repos))
@@ -42,9 +40,8 @@ fetch(`https://api.github.com/users/${username}/repos`)
     document.getElementById("github-section").appendChild(errorMessage);
   });
 
-// Typing effect for About Me list
+// Typing effect
 const items = ["Student", "Runner", "Freelance developer", "Linux enthusiast"];
-
 const typingList = document.getElementById("typing-list");
 
 let itemIndex = 0;
@@ -73,4 +70,27 @@ function typeNextItem() {
   typeChar();
 }
 
-document.addEventListener("DOMContentLoaded", typeNextItem);
+// Load top 5 recent commits for dropdown
+function loadHeaderCommits(username, repo) {
+  fetch(`https://api.github.com/repos/${username}/${repo}/commits`)
+    .then((res) => res.json())
+    .then((commits) => {
+      const container = document.getElementById("commit-dropdown-list");
+      commits.slice(0, 5).forEach((commit) => {
+        const date = new Date(commit.commit.committer.date).toLocaleString();
+        const a = document.createElement("a");
+        a.href = commit.html_url;
+        a.target = "_blank";
+        a.innerHTML = `<strong>${commit.commit.message}</strong><br><small>${date}</small>`;
+        container.appendChild(a);
+      });
+    })
+    .catch((err) => {
+      console.error("Dropdown commit fetch failed:", err);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  typeNextItem();
+  loadHeaderCommits(username, "5ee5dev");
+});
