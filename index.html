@@ -1,48 +1,56 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>5ee5dev</title>
-        <link rel="stylesheet" href="style.css" />
-        <link rel="icon" href="favicon.svg" type="image/x-icon" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        />
-    </head>
-    <body>
-        <header>
-            <h1>5ee5</h1>
-            <div class="commit-dropdown">
-                <button class="dropbtn">Latest Commit ▾</button>
-                <div class="dropdown-content" id="commit-dropdown-list"></div>
-            </div>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5ee5dev</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.svg" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>5ee5</h1>
+      <div class="commit-dropdown">
+        <button class="dropbtn">Latest Commit ▾</button>
+        <div class="dropdown-content" id="commit-dropdown-list"></div>
+      </div>
+    </header>
 
-        <main>
-            <div id="content">
-                <section id="profile-container">
-                    <img
-                        src="e5.png"
-                        alt="Profile Picture"
-                        class="circle-image"
-                    />
-                    <h2 id="bio">About me</h2>
-                    <p id="typing-list"></p>
-                </section>
+    <main>
+      <div class="info-row">
+        <!-- Tools I Use -->
+        <section id="tools-section">
+          <h2>Tools I Use</h2>
+          <ul>
+            <li><i class="fas fa-code"></i> ZED</li>
+            <li><i class="fab fa-git-alt"></i> Git</li>
+            <li><i class="fab fa-linux"></i> Gentoo Linux</li>
+            <li><i class="fab fa-python"></i> Python</li>
+          </ul>
+        </section>
 
-                <section id="github-section">
-                    <h2 id="text">My Projects</h2>
+        <!-- About Me -->
+        <section id="profile-container">
+          <img src="e5.png" alt="Profile Picture" class="circle-image" />
+          <h2 id="bio">About me</h2>
+          <ul id="typing-list"></ul>
+        </section>
 
-                    <div class="repo-lists">
-                        <ul id="repo-list-1"></ul>
-                        <ul id="repo-list-2"></ul>
-                    </div>
-                </section>
-            </div>
-        </main>
+        <!-- My Projects -->
+        <section id="github-section">
+          <h2 id="text">My Projects</h2>
+          <div class="repo-lists">
+            <ul id="repo-list-1"></ul>
+            <ul id="repo-list-2"></ul>
+          </div>
+        </section>
+      </div>
+    </main>
 
-        <script src="script.js"></script>
-    </body>
+    <script src="script.js"></script>
+  </body>
 </html>

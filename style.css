@@ -32,32 +32,28 @@ main {
     padding: 2rem;
 }
 
-#content {
+.info-row {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
     gap: 40px;
+    padding: 2rem;
     width: 100%;
     max-width: 1200px;
-}
-
-#profile-container,
-#github-section {
-    flex: 1;
-    padding: 20px;
     box-sizing: border-box;
 }
 
-#profile-container {
-    max-width: 400px;
-}
-
-#github-section {
-    max-width: 700px;
-}
-
-#bio {
-    color: var(--primary-color);
+.info-row section {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    max-width: 300px;
+    min-width: 250px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .circle-image {
@@ -69,88 +65,14 @@ main {
     transition: transform 0.3s;
 }
 
-section {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#github-section {
-    text-align: center;
-    background-color: var(--background-color);
-}
-
-#github-section h2 {
-    margin-bottom: 10px;
-}
-
-#text {
+#bio,
+#text,
+#tools-section h2 {
     color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
-#github-section a {
-    color: var(--text-color);
-    text-decoration: none;
-    margin-right: 10px;
-}
-
-#github-section a:hover {
-    color: var(--hover-color);
-}
-
-.repo-lists {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-#repo-list-1,
-#repo-list-2 {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-#repo-list-1 li,
-#repo-list-2 li {
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
-    margin: 10px;
-}
-
-#repo-list-1 a,
-#repo-list-2 a {
-    display: block;
-    padding: 12px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    border: none;
-    border-radius: 10px;
-    text-decoration: none;
-    transition:
-        background-color 0.3s,
-        transform 0.3s;
-    width: 100%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-#repo-list-1 a:hover,
-#repo-list-2 a:hover {
-    background-color: var(--background-color);
-    transform: scale(1.05);
-    color: var(--primary-color);
-}
-
+/* Typing list */
 #typing-list {
     list-style-type: disc;
     padding-left: 20px;
@@ -170,27 +92,84 @@ section {
 }
 
 @keyframes blink {
-    0%,
-    50%,
-    100% {
-        opacity: 1;
-    }
-    25%,
-    75% {
-        opacity: 0;
-    }
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
 }
 
-@media (min-width: 768px) {
-    #content {
-        flex-direction: row;
-        align-items: flex-start;
-    }
+/* Tools Section */
+#tools-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-    .repo-lists {
-        flex-direction: row;
-        gap: 40px;
-    }
+#tools-section li {
+    background: #111;
+    padding: 0.6rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#tools-section li i {
+    margin-right: 0.6rem;
+    color: var(--primary-color);
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Repo Section */
+#github-section {
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+.repo-lists {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+#repo-list-1,
+#repo-list-2 {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#repo-list-1 li,
+#repo-list-2 li {
+    text-align: center;
+}
+
+#repo-list-1 a,
+#repo-list-2 a {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#repo-list-1 a:hover,
+#repo-list-2 a:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    transform: scale(1.05);
 }
 
 /* Commit dropdown in header */
@@ -244,4 +223,17 @@ section {
 
 .commit-dropdown:hover .dropdown-content {
     display: block;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .info-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .repo-lists {
+        flex-direction: column;
+        align-items: center;
+    }
 }
