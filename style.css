@@ -225,6 +225,12 @@ main {
     display: block;
 }
 
+#friends-section {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--primary-color);
+}
+
 /* Responsive layout */
 @media (max-width: 768px) {
     .info-row {
@@ -237,3 +243,4 @@ main {
         align-items: center;
     }
 }
+
