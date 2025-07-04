@@ -225,10 +225,25 @@ main {
     display: block;
 }
 
+/* Friends section */
 #friends-section {
     text-align: center;
     margin-top: 2rem;
     color: var(--primary-color);
+}
+
+#friends-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Iframe (webring) */
+iframe {
+    max-width: 100%;
+    height: 70px;
+    display: block;
+    margin: 0 auto;
+    border: none;
 }
 
 /* Responsive layout */
@@ -238,9 +253,14 @@ main {
         align-items: center;
     }
 
-    .repo-lists {
-        flex-direction: column;
-        align-items: center;
+    .info-row section {
+        max-width: 90%;
+        min-width: unset;
+    }
+
+    #repo-list-1 a,
+    #repo-list-2 a {
+        width: 100%;
+        max-width: 250px;
     }
 }
-
