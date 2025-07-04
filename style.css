@@ -239,7 +239,7 @@ main {
 
 /* Iframe (webring) */
 iframe {
-    max-width: 100%;
+    max-width: 150px;
     height: 70px;
     display: block;
     margin: 0 auto;
