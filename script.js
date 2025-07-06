@@ -92,9 +92,9 @@ function loadHeaderCommits(username, repo) {
 }
 
 document.getElementById("copy-blankie").addEventListener("click", function () {
-    const code = `<a href="https://5ee5.github.io/5ee5dev/" target="_blank"><img src="https://5ee5.github.io/5ee5dev/5ee5.png" width="88" height="31" alt="5ee5's Blankie" /></a>`;
+    const code = `<a href="https://5ee5.github.io/5ee5dev/" target="_blank"><img src="https://5ee5.github.io/5ee5dev/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
     navigator.clipboard.writeText(code).then(() => {
-        alert("Copied 5ee5's blankie HTML!");
+        alert("Copied 5ee5's blinkie HTML!");
     });
 });
 
