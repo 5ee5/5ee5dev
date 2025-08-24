@@ -92,10 +92,38 @@ function loadHeaderCommits(username, repo) {
 }
 
 document.getElementById("copy-blankie").addEventListener("click", function () {
-    const code = `<a href="https://5ee5.github.io/5ee5dev/" target="_blank"><img src="https://5ee5.github.io/5ee5dev/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
-    navigator.clipboard.writeText(code).then(() => {
-        alert("Copied 5ee5's blinkie HTML!");
-    });
+  const code = `<a href="https://5ee5.github.io/5ee5dev/" target="_blank"><img src="https://5ee5.github.io/5ee5dev/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
+  navigator.clipboard.writeText(code).then(() => {
+    const oldText = this.innerHTML;
+    this.innerHTML = "Copied!";
+    setTimeout(() => {
+      this.innerHTML = oldText;
+    }, 2000);
+  });
+});
+
+document.getElementById("discord-link").addEventListener("click", function (e) {
+  e.preventDefault();
+  const discord = this.textContent;
+  navigator.clipboard.writeText(discord).then(() => {
+    const oldText = this.textContent;
+    this.textContent = "Copied!";
+    setTimeout(() => {
+      this.textContent = oldText;
+    }, 2000);
+  });
+});
+
+document.getElementById("email-link").addEventListener("click", function (e) {
+  e.preventDefault();
+  const email = this.textContent;
+  navigator.clipboard.writeText(email).then(() => {
+    const oldText = this.textContent;
+    this.textContent = "Copied!";
+    setTimeout(() => {
+      this.textContent = oldText;
+    }, 2000);
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

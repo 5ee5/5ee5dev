@@ -67,7 +67,8 @@ main {
 
 #bio,
 #text,
-#tools-section h2 {
+#tools-section h2,
+#contacts-section h2 {
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
@@ -97,13 +98,15 @@ main {
 }
 
 /* Tools Section */
-#tools-section ul {
+#tools-section ul,
+#contacts-section ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-#tools-section li {
+#tools-section li,
+#contacts-section li {
     background: #111;
     padding: 0.6rem 1rem;
     margin: 0.5rem 0;
@@ -115,11 +118,29 @@ main {
     justify-content: flex-start;
 }
 
-#tools-section li i {
+#tools-section li i,
+#contacts-section li i {
     margin-right: 0.6rem;
     color: var(--primary-color);
     min-width: 20px;
     text-align: center;
+}
+
+#contacts-section li a {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#contacts-section li a:hover {
+    color: var(--primary-color);
+}
+
+#contacts-section li a.copied {
+    color: var(--primary-color);
+    background-color: #333;
+    padding: 2px 6px;
+    border-radius: 4px;
 }
 
 /* Repo Section */
