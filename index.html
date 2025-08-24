@@ -1,25 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="5ee5" />
-    <meta property="og:description" content="5ee5's personal portofolio" />
-    <meta property="og:image" content="https://5ee5.github.io/5ee5dev/e5.png" />
-    <meta property="og:url" content="https://5ee5.github.io/5ee5dev/" />
-    <meta property="og:site_name" content="5ee5dev" />
-    <meta name="site-button" content="https://5ee5.github.io/5ee5dev/5ee5.png">
-    <meta name="theme-color" content="#fffd37" />
-    <meta name="ring" content="true">
-    <meta name="author" content="5ee5">
-    <meta name="description" content="Self-proclaimed dev">
-    <meta name="avatar" content="https://5ee5.github.io/5ee5dev/e5.png">
-    <meta name="url" content="https://5ee5.github.io/5ee5dev/">
-
-    <title>5ee5dev</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="e5.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5ee5</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -32,59 +18,52 @@
 
     <main>
         <div class="info-row">
-            <!-- Toolkit -->
             <section id="tools-section">
                 <h2>Toolkit</h2>
                 <ul>
-                    <li><i class="fa-solid fa-code"></i> VSCode</li>
-                    <li><i class="fa-brands fa-html5"></i> HTML CSS JS</li>
+                    <li><i class="fab fa-vscode"></i> VSCode</li>
+                    <li><i class="fab fa-html5"></i> HTML CSS JS</li>
                     <li><i class="fab fa-python"></i> Python</li>
-                    <li><i class="fab fa-git-alt"></i> Git</li>
-                    <li><i class="fa-brands fa-linux"></i> Gentoo Linux</li>
+                    <li><i class="fab fa-git"></i> Git</li>
+                    <li><i class="fab fa-linux"></i> Gentoo Linux</li>
                 </ul>
             </section>
 
-            <!-- About Me -->
-            <section id="profile-container">
-                <img src="e5.png" alt="Profile Picture" class="circle-image" />
-                <h2 id="bio">About me</h2>
+            <section id="bio">
+                <h2>About me</h2>
                 <ul id="typing-list"></ul>
             </section>
 
-            <!-- My Projects -->
             <section id="github-section">
-                <h2 id="text">My Projects</h2>
+                <h2>My Projects</h2>
                 <div class="repo-lists">
                     <ul id="repo-list-1"></ul>
                     <ul id="repo-list-2"></ul>
                 </div>
             </section>
 
-            <!-- Friends -->
-            <section id="friends-section">
-                <h2 id="friends">Me and my Friends 88x31</h2>
-                <img
-                    src="5ee5.png"
-                    width="88"
-                    height="31"
-                    id="copy-blankie"
-                    style="cursor: pointer;"
-                    title="Click to copy my 88x31!"
-                    />
-
-
-                <a href="https://pre1ude.dev" target="_blank">
-                    <img src="https://pre1ude.dev/blankie.png" height="31" width="88" />
-                </a>
+            <section id="contacts-section">
+                <h2>Contact Me</h2>
+                <ul>
+                    <li>
+                        <i class="fab fa-discord"></i>
+                        <a href="https://discord.com/users/903314598596321331" target="_blank" id="discord-link">5ee5</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:5ee5dev@proton.me" id="email-link">5ee5dev@proton.me</a>
+                    </li>
+                </ul>
             </section>
 
-            <!-- Webring iframe wrapped properly -->
-            <section id="ring-section">
-                <iframe src="https://ring.pre1ude.dev/ring?url=https://5ee5.github.io/5ee5dev&bgcolor=000000&fgcolor=fffd37"></iframe>
+            <section id="friends-section">
+                <h2>Me and my Friends 88x31</h2>
+                <a href="#" id="copy-blankie">
+                    <img src="5ee5.png" width="88" height="31" alt="5ee5's Blinkie" />
+                </a>
+                <iframe src="https://webring.xxiivv.com/#random" title="webring"></iframe>
             </section>
         </div>
     </main>
-
-    <script src="script.js"></script>
 </body>
 </html>
