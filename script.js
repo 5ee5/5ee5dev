@@ -1,10 +1,11 @@
 const username = "5ee5";
 const repo = "5ee5dev";
-const repoList1 = document.getElementById("repo-list-1");
-const repoList2 = document.getElementById("repo-list-2");
 
 // Display repository links
 function displayRepos(repos) {
+  const repoList1 = document.getElementById("repo-list-1");
+  const repoList2 = document.getElementById("repo-list-2");
+
   if (!repos || repos.length === 0) {
     const msg = document.createElement("p");
     msg.textContent = "No public repositories found.";
@@ -29,17 +30,6 @@ function createRepoLink(repo, repoList) {
   listItem.appendChild(link);
   repoList.appendChild(listItem);
 }
-
-// Fetch and display repository list
-fetch(`https://api.github.com/users/${username}/repos`)
-  .then((response) => response.json())
-  .then((repos) => displayRepos(repos))
-  .catch((error) => {
-    console.error("Error fetching repos:", error);
-    const errorMessage = document.createElement("p");
-    errorMessage.textContent = "Failed to load repositories.";
-    document.getElementById("github-section").appendChild(errorMessage);
-  });
 
 // Typing effect
 const items = ["Student", "Student/Self-proclaimed developer", "Linux enthusiast"];
@@ -92,43 +82,45 @@ function loadHeaderCommits(username, repo) {
     });
 }
 
-// Copy blinkie
-document.getElementById("copy-blankie").addEventListener("click", function () {
-    const code = `<a href="https://5ee5.github.io/5ee5dev/5ee5.png" target="_blank"><img src="https://5ee5.github.io/5ee5dev/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
-    navigator.clipboard.writeText(code).then(() => {
-        alert("Copied 5ee5's blinkie HTML!");
-    });
+
+document.getElementById("copy-blankie").addEventListener("click", function (e) {
+  e.preventDefault();
+  const code = `<a href="https://5ee5.github.io/5ee5dev/" target="_blank"><img src="https://5ee5.github.io/5ee5dev/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
+  navigator.clipboard.writeText(code).then(() => {
+    this.textContent = "Copied!";
+    setTimeout(() => {
+      this.innerHTML = `<img src="5ee5.png" width="88" height="31" alt="5ee5's Blinkie" />`;
+    }, 2000);
+  });
 });
 
-// Copy Discord and email
-const discordLink = document.getElementById("https://discord.com/users/903314598596321331");
-const emailLink = document.getElementById("5ee5dev@proton.me");
-
-function copyContactInfo(link, originalText) {
-  const discord = discordLink.textContent;
-  const email = emailLink.textContent;
-  const contactInfo = `${discord}, ${email}`;
-  navigator.clipboard.writeText(contactInfo).then(() => {
-    link.textContent = "Copied!";
-    link.classList.add("copied");
-    setTimeout(() => {
-      link.textContent = originalText;
-      link.classList.remove("copied");
-    }, 5000);
+function setupCopy(link, text) {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(text).then(() => {
+      const original = link.textContent;
+      link.textContent = "Copied!";
+      setTimeout(() => {
+        link.textContent = original;
+      }, 2000);
+    });
   });
 }
 
-discordLink.addEventListener("click", function (e) {
-  e.preventDefault(); // Prevent opening the link
-  copyContactInfo(this, this.textContent);
-});
-
-emailLink.addEventListener("click", function (e) {
-  e.preventDefault(); // Prevent triggering the mailto link
-  copyContactInfo(this, this.textContent);
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   typeNextItem();
-  loadHeaderCommits(username, "5ee5dev");
+  loadHeaderCommits(username, repo);
+
+  fetch(`https://api.github.com/users/${username}/repos`)
+    .then((response) => response.json())
+    .then((repos) => displayRepos(repos))
+    .catch((error) => {
+      console.error("Error fetching repos:", error);
+      const errorMessage = document.createElement("p");
+      errorMessage.textContent = "Failed to load repositories.";
+      document.getElementById("github-section").appendChild(errorMessage);
+    });
+
+  setupCopy(document.getElementById("discord-link"), "903314598596321331");
+  setupCopy(document.getElementById("email-link"), "5ee5dev@proton.me");
 });
