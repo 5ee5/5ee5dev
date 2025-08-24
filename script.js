@@ -41,7 +41,7 @@ fetch(`https://api.github.com/users/${username}/repos`)
   });
 
 // Typing effect
-const items = ["Student", "Freelance developer", "Linux enthusiast"];
+const items = ["Student", "Student/Self-proclaimed developer", "Linux enthusiast"];
 const typingList = document.getElementById("typing-list");
 
 let itemIndex = 0;
