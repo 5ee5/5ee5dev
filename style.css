@@ -143,11 +143,15 @@ main {
     border-radius: 4px;
 }
 
-/* Repo Section */
 #github-section {
     text-align: center;
     background-color: var(--background-color);
 }
+
+#github-section h2 {
+    color: var(--primary-color);
+}
+
 
 .repo-lists {
     display: flex;
