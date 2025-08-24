@@ -126,6 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   setupBlinkieCopy();
-  setupCopy(document.getElementById("discord-link"), "903314598596321331");
+  setupCopy(document.getElementById("discord-link"), "https://discord.com/users/903314598596321331");
   setupCopy(document.getElementById("email-link"), "5ee5dev@proton.me");
 });
