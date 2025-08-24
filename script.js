@@ -33,12 +33,10 @@ function createRepoLink(repo, repoList) {
 
 // Typing effect
 const items = ["Student", "Student/Self-proclaimed developer", "Linux enthusiast"];
-const typingList = document.getElementById("typing-list");
-
 let itemIndex = 0;
 let charIndex = 0;
 
-function typeNextItem() {
+function typeNextItem(typingList) {
   if (itemIndex >= items.length) return;
 
   const li = document.createElement("li");
@@ -54,7 +52,7 @@ function typeNextItem() {
     } else {
       itemIndex++;
       charIndex = 0;
-      setTimeout(typeNextItem, 300);
+      setTimeout(() => typeNextItem(typingList), 300);
     }
   }
 
@@ -82,18 +80,21 @@ function loadHeaderCommits(username, repo) {
     });
 }
 
-
-document.getElementById("copy-blankie").addEventListener("click", function (e) {
-  e.preventDefault();
-  const code = `<a href="https://5ee5.github.io/5ee5dev/" target="_blank"><img src="https://5ee5.github.io/5ee5dev/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
-  navigator.clipboard.writeText(code).then(() => {
-    this.textContent = "Copied!";
-    setTimeout(() => {
-      this.innerHTML = `<img src="5ee5.png" width="88" height="31" alt="5ee5's Blinkie" />`;
-    }, 2000);
+// Copy blinkie
+function setupBlinkieCopy() {
+  document.getElementById("copy-blankie").addEventListener("click", function (e) {
+    e.preventDefault();
+    const code = `<a href="https://5ee5.github.io/5ee5dev/" target="_blank"><img src="https://5ee5.github.io/5ee5dev/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
+    navigator.clipboard.writeText(code).then(() => {
+      this.textContent = "Copied!";
+      setTimeout(() => {
+        this.innerHTML = `<img src="5ee5.png" width="88" height="31" alt="5ee5's Blinkie" />`;
+      }, 2000);
+    });
   });
-});
+}
 
+// Copy helper
 function setupCopy(link, text) {
   link.addEventListener("click", (e) => {
     e.preventDefault();
@@ -107,8 +108,11 @@ function setupCopy(link, text) {
   });
 }
 
+// Run everything after DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-  typeNextItem();
+  const typingList = document.getElementById("typing-list");
+  typeNextItem(typingList);
+
   loadHeaderCommits(username, repo);
 
   fetch(`https://api.github.com/users/${username}/repos`)
@@ -121,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("github-section").appendChild(errorMessage);
     });
 
+  setupBlinkieCopy();
   setupCopy(document.getElementById("discord-link"), "903314598596321331");
   setupCopy(document.getElementById("email-link"), "5ee5dev@proton.me");
 });
