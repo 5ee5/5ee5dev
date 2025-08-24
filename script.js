@@ -100,8 +100,8 @@ document.getElementById("copy-blankie").addEventListener("click", function () {
 });
 
 // Copy Discord and email
-const discordLink = document.getElementById("discord-link");
-const emailLink = document.getElementById("email-link");
+const discordLink = document.getElementById("https://discord.com/users/903314598596321331");
+const emailLink = document.getElementById("5ee5dev@proton.me");
 
 function copyContactInfo(link, originalText) {
   const discord = discordLink.textContent;
