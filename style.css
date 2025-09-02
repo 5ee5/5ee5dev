@@ -5,6 +5,12 @@
     --text-color: white;
 }
 
+html, body {
+  height: 100%;
+  overflow-y: hidden; /* disables vertical scroll */
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -30,6 +36,7 @@ main {
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    overflow-y: auto
 }
 
 .info-row {
