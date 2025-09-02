@@ -32,7 +32,7 @@ function createRepoLink(repo, repoList) {
 }
 
 // Typing effect
-const items = ["Student", "Student/Self-proclaimed developer", "Linux enthusiast"];
+const items = ["Student", "Self-proclaimed dev", "Linux enthusiast"];
 let itemIndex = 0;
 let charIndex = 0;
 
