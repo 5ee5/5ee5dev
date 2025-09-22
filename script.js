@@ -84,11 +84,11 @@ function loadHeaderCommits(username, repo) {
 function setupBlinkieCopy() {
   document.getElementById("copy-blankie").addEventListener("click", function (e) {
     e.preventDefault();
-    const code = `<a href="https://5ee5.github.io/5ee5dev/" target="_blank"><img src="https://5ee5.github.io/5ee5dev/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
+    const code = `<a href="https://5ee5.github.io/5ee5dev/" target="_blank"><img src="https://5ee5.github.io/5ee5dev/assets/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
     navigator.clipboard.writeText(code).then(() => {
       this.textContent = "Copied!";
       setTimeout(() => {
-        this.innerHTML = `<img src="5ee5.png" width="88" height="31" alt="5ee5's Blinkie" />`;
+        this.innerHTML = `<img src="assets/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" />`;
       }, 2000);
     });
   });
