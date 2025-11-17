@@ -22,7 +22,7 @@ export default function ContactMe() {
   const contacts = [
     { id: "discord", icon: "fa-brands fa-discord", label: "Discord", value: "https://discord.com/users/903314598596321331" },
     { id: "server",  icon: "fa-brands fa-discord", label: "Discord Server", value: "https://discord.gg/26mtndbezP" },
-    { id: "mail",    icon: "fa-solid fa-envelope", label: "Mail", value: "e5@5ee5dev" },
+    { id: "mail",    icon: "fa-solid fa-envelope", label: "Mail", value: "e5@5ee5.dev" },
   ];
 
   return (
