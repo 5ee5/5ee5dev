@@ -82,7 +82,6 @@ main {
     margin-bottom: 1rem;
 }
 
-/* Typing list */
 #typing-list {
     list-style-type: disc;
     padding-left: 20px;
@@ -106,7 +105,6 @@ main {
     25%, 75% { opacity: 0; }
 }
 
-/* Tools Section */
 #tools-section ul,
 #contacts-section ul {
     list-style: none;
@@ -161,7 +159,6 @@ main {
     color: var(--primary-color);
 }
 
-
 .repo-lists {
     display: flex;
     flex-direction: row;
@@ -206,7 +203,6 @@ main {
     transform: scale(1.05);
 }
 
-/* Commit dropdown in header */
 .commit-dropdown {
     position: absolute;
     top: 15px;
@@ -259,7 +255,6 @@ main {
     display: block;
 }
 
-/* --- FRIENDS / BLINKIES --- */
 #friends-section {
   text-align: center;
   margin-top: 2rem;
@@ -270,13 +265,12 @@ main {
   margin-bottom: 1rem;
 }
 
-/* side-by-side layout */
 .blinkies {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  flex-wrap: wrap; /* responsive on smaller screens */
+  flex-wrap: wrap;
 }
 
 .blinkie {
@@ -296,7 +290,6 @@ main {
   font-weight: bold;
 }
 
-/* Iframe (webring) */
 iframe {
     width: 300px;
     height: 100px;
@@ -305,7 +298,6 @@ iframe {
     border: none;
 }
 
-/* Responsive layout */
 @media (max-width: 768px) {
     .info-row {
         flex-direction: column;
@@ -324,15 +316,13 @@ iframe {
     }
 }
 
-
-/* force the hand cursor for contact boxes */
 .contact-box,
 .contact-box * {
-  cursor: pointer !important;   /* shows hand cursor */
+  cursor: pointer !important;
 }
 
 .contact-box {
-  user-select: none;            /* prevent text highlight */
-  -webkit-user-drag: none;      /* prevent dragging */
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
