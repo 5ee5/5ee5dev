@@ -280,8 +280,9 @@ main {
 }
 
 .blinkie:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(-3px);
   filter: brightness(1.2);
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 .copied-message {
