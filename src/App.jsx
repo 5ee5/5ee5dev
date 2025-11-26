@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./sections/Header";
+import Tech from "./sections/Tech";
 import Toolkit from "./sections/Toolkit";
 import AboutMe from "./sections/AboutMe";
 import MyProjects from "./sections/MyProjects";
@@ -14,6 +15,7 @@ export default function App() {
       <main>
         <div className="info-row">
           <Toolkit />
+	  <Tech />
           <AboutMe />
           <MyProjects />
           <ContactMe />
