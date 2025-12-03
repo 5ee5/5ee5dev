@@ -15,7 +15,7 @@ export default function App() {
       <main>
         <div className="info-row">
           <Toolkit />
-	  <Tech />
+          <Tech />
           <AboutMe />
           <MyProjects />
           <ContactMe />
