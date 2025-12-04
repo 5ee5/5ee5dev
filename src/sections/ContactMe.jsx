@@ -7,7 +7,6 @@ export default function ContactMe() {
     try {
       await navigator.clipboard.writeText(text);
     } catch {
-      // fallback for HTTP testing
       const t = document.createElement("textarea");
       t.value = text;
       document.body.appendChild(t);
@@ -21,8 +20,8 @@ export default function ContactMe() {
 
   const contacts = [
     { id: "discord", icon: "fa-brands fa-discord discord-icon", label: "Discord", value: "https://discord.com/users/903314598596321331" },
-    { id: "server",  icon: "fa-brands fa-discord discord-icon", label: "Discord Server", value: "https://discord.gg/26mtndbezP" },
-    { id: "mail",    icon: "fa-solid fa-envelope mail-icon", label: "Mail", value: "e5@5ee5.dev" },
+    { id: "server",  icon: "fa-brands fa-discord discord-icon", label: "Server", value: "https://discord.gg/26mtndbezP" },
+    { id: "mail",    icon: "fa-solid fa-envelope mail-icon",     label: "Mail", value: "e5@5ee5.dev" },
   ];
 
   return (
@@ -37,10 +36,11 @@ export default function ContactMe() {
             tabIndex={0}
           >
             <i className={c.icon}></i>
-            <span>{copied === c.id ? "Copied!" : c.label}</span>
+            {copied === c.id ? "Copied!" : c.label}
           </li>
         ))}
       </ul>
     </section>
   );
 }
+
