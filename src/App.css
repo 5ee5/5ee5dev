@@ -122,16 +122,24 @@ main {
     font-size: 1rem;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center; 
+    gap: 0.6rem; 
 }
 
 #tools-section li i,
 #contacts-section li i {
-    margin-right: 0.6rem;
-    color: var(--primary-color);
-    min-width: 20px;
+    font-size: 1.15rem !important;
+    min-width: 26px !important;
+    width: 26px !important;
     text-align: center;
 }
+
+#tools-section li span,
+#contacts-section li span {
+    text-align: center;
+    width: 100%;
+}
+
 
 .html-icon {
   color: #e34c26 !important;
@@ -157,12 +165,8 @@ main {
   color: #ffffff !important;
 }
 
-.discord-icon {
-  color: #5865F2 !important;
-}
-
-.mail-icon {
-  color: #dddddd !important;
+.git-icon {
+  color: #f05033 !important;
 }
 
 #contacts-section li a {
