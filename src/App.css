@@ -133,6 +133,30 @@ main {
     text-align: center;
 }
 
+.html-icon {
+  color: #e34c26 !important;
+}
+
+.react-icon {
+  color: #61dafb !important;
+}
+
+.python-icon {
+  color: #f7df1e !important;
+}
+
+.linux-icon {
+  color: #ffffff !important;
+}
+
+.discord-icon {
+  color: #5865F2 !important;
+}
+
+.mail-icon {
+  color: #dddddd !important;
+}
+
 #contacts-section li a {
     color: var(--text-color);
     text-decoration: none;
@@ -141,6 +165,14 @@ main {
 
 #contacts-section li a:hover {
     color: var(--primary-color);
+}
+
+.discord-icon {
+  color: #5865F2 !important;
+}
+
+.mail-icon {
+  color: #dddddd !important;
 }
 
 #contacts-section li a.copied {

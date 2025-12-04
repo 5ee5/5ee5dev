@@ -20,9 +20,9 @@ export default function ContactMe() {
   };
 
   const contacts = [
-    { id: "discord", icon: "fa-brands fa-discord", label: "Discord", value: "https://discord.com/users/903314598596321331" },
-    { id: "server",  icon: "fa-brands fa-discord", label: "Discord Server", value: "https://discord.gg/26mtndbezP" },
-    { id: "mail",    icon: "fa-solid fa-envelope", label: "Mail", value: "e5@5ee5.dev" },
+    { id: "discord", icon: "fa-brands fa-discord discord-icon", label: "Discord", value: "https://discord.com/users/903314598596321331" },
+    { id: "server",  icon: "fa-brands fa-discord discord-icon", label: "Discord Server", value: "https://discord.gg/26mtndbezP" },
+    { id: "mail",    icon: "fa-solid fa-envelope mail-icon", label: "Mail", value: "e5@5ee5.dev" },
   ];
 
   return (
