@@ -137,6 +137,14 @@ main {
   color: #e34c26 !important;
 }
 
+.css-icon {
+  color: #2965f1 !important;
+}
+
+.js-icon {
+  color: #f7df1e !important;
+}
+
 .react-icon {
   color: #61dafb !important;
 }
