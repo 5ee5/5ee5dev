@@ -4,7 +4,7 @@ export default function Friends() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    const html = `<a href="https://5ee5.dev" target="_blank"><img src="https://5ee5.dev/assets/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
+    const html = `<a href="https://5ee5.dev" target="_blank"><img src="https://5ee5.dev/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
 
     try {
       await navigator.clipboard.writeText(html);
