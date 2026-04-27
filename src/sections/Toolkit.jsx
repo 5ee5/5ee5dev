@@ -1,6 +1,6 @@
 export default function Toolkit() {
   return (
-    <section id="tools-section">
+    <section id="toolkit-section">
       <h2>Toolkit</h2>
       <ul>
         <li><i className="fa-brands fa-html5 html-icon"></i> HTML</li>

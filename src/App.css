@@ -76,7 +76,8 @@ main {
 
 #bio,
 #text,
-#tools-section h2,
+#toolkit-section h2,
+#tech-section h2,
 #contacts-section h2 {
     color: var(--primary-color);
     margin-bottom: 1rem;
@@ -105,14 +106,16 @@ main {
     25%, 75% { opacity: 0; }
 }
 
-#tools-section ul,
+#toolkit-section ul,
+#tech-section ul,
 #contacts-section ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-#tools-section li,
+#toolkit-section li,
+#tech-section li,
 #contacts-section li {
     background: #111;
     padding: 0.6rem 1rem;
@@ -126,7 +129,8 @@ main {
     gap: 0.6rem; 
 }
 
-#tools-section li i,
+#toolkit-section li i,
+#tech-section li i,
 #contacts-section li i {
     font-size: 1.15rem !important;
     min-width: 26px !important;
@@ -134,7 +138,8 @@ main {
     text-align: center;
 }
 
-#tools-section li span,
+#toolkit-section li span,
+#tech-section li span,
 #contacts-section li span {
     text-align: center;
     width: 100%;
