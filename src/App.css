@@ -95,22 +95,18 @@ header {
     transition: transform 0.3s;
 }
 
-#typing-list {
+#about-me-list {
     list-style-type: disc;
     padding-left: 20px;
     margin-top: 10px;
     text-align: left;
 }
 
-#typing-list li {
+#about-me-list li {
     font-size: 1rem;
     line-height: 1.6;
 }
 
-#typing-list li span::after {
-    content: "|";
-    animation: blink 1s infinite;
-}
 
 @keyframes blink {
     0%, 50%, 100% { opacity: 1; }
