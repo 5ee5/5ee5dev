@@ -2,7 +2,7 @@ export default function Toolkit() {
   return (
     <section id="toolkit-section">
       <h2>Toolkit</h2>
-      <ul>
+      <ul className="item-list">
         <li><i className="fa-brands fa-html5 html-icon"></i> HTML</li>
         <li><i className="fa-brands fa-css3-alt css-icon"></i> CSS</li>
         <li><i className="fa-brands fa-js js-icon"></i> JS</li>

@@ -12,15 +12,17 @@ export default function App() {
   return (
     <>
       <Header />
-      <main>
-        <div className="info-row">
-          <Toolkit />
-          <Tech />
+      <main className="layout">
+        <aside className="sidebar">
           <AboutMe />
-          <MyProjects />
           <ContactMe />
           <Friends />
           <Webring />
+        </aside>
+        <div className="content">
+          <Toolkit />
+          <Tech />
+          <MyProjects />
         </div>
       </main>
     </>

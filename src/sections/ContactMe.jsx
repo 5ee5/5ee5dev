@@ -27,7 +27,7 @@ export default function ContactMe() {
   return (
     <section id="contacts-section">
       <h2>Contact Me</h2>
-      <ul>
+      <ul className="item-list">
         {contacts.map((c) => (
           <li
             key={c.id}

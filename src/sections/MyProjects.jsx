@@ -19,22 +19,13 @@ export default function MyProjects() {
   return (
     <section id="github-section">
       <h2>My Projects</h2>
-      <div className="repo-lists">
-        <ul id="repo-list-1">
-          {repos.slice(0, Math.ceil(repos.length / 2)).map((repo) => (
-            <li key={repo.id}>
-              <a href={repo.html_url} target="_blank">{repo.name}</a>
-            </li>
-          ))}
-        </ul>
-        <ul id="repo-list-2">
-          {repos.slice(Math.ceil(repos.length / 2)).map((repo) => (
-            <li key={repo.id}>
-              <a href={repo.html_url} target="_blank">{repo.name}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="repo-grid">
+        {repos.map((repo) => (
+          <li key={repo.id}>
+            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">{repo.name}</a>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
