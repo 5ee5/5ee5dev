@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Friends() {
   const [copied, setCopied] = useState(false);
@@ -29,15 +30,16 @@ export default function Friends() {
 
       <div className="blinkies">
         {!copied ? (
-          <img
+          <Image
             src="/5ee5.png"
-            width="88"
-            height="31"
+            width={88}
+            height={31}
             alt="5ee5 Blinkie"
             title="Click to copy HTML"
             onClick={handleCopy}
             className="blinkie"
             draggable="false"
+            unoptimized
           />
         ) : (
           <p className="copied-message">Copied!</p>
@@ -48,13 +50,14 @@ export default function Friends() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
+          <Image
             src="https://pre1ude.dev/blankie.png"
-            width="88"
-            height="31"
+            width={88}
+            height={31}
             alt="pre1ude.dev"
             className="blinkie"
             draggable="false"
+            unoptimized
           />
         </a>
       </div>
