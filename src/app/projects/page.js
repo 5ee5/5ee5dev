@@ -53,21 +53,6 @@ export default function ProjectsPage() {
               </div>
             </article>
           </section>
-
-          <section className="full-project-list-section">
-            <div className="full-project-list-content">
-              <h2>Looking for the complete project list?</h2>
-              <p>Explore all public repositories, forks, and code on my GitHub profile.</p>
-            </div>
-            <a
-              href="https://github.com/5ee5?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="github-btn-large"
-            >
-              <i className="fa-brands fa-github"></i> View Full List on GitHub ↗
-            </a>
-          </section>
         </div>
       </main>
     </>
