@@ -6,7 +6,7 @@ export default async function LatestCommit() {
     const res = await fetch(
       "https://api.github.com/repos/5ee5/5ee5dev/commits?per_page=1",
       {
-        next: { revalidate: 3600 },
+        next: { revalidate: 60 },
       }
     );
 
