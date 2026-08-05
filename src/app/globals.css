@@ -1,3 +1,5 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
 :root {
     --bg: #0a0a0a;
     --surface: #141414;
@@ -38,9 +40,42 @@ body {
 header {
     background: var(--accent);
     color: var(--bg);
-    padding: 1rem 0;
-    text-align: center;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
+    box-sizing: border-box;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.header-title a {
+    color: var(--bg);
+    text-decoration: none;
+}
+
+.header-projects-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: var(--bg);
+    color: var(--accent-text);
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.header-projects-btn:hover {
+    background-color: var(--surface-raised);
+    color: var(--text);
 }
 
 /* ---- layout ---- */
@@ -202,9 +237,7 @@ header {
 /* ---- latest commit dropdown ---- */
 
 .commit-dropdown {
-    position: absolute;
-    top: 15px;
-    right: 20px;
+    position: relative;
 }
 
 .dropbtn {
@@ -285,6 +318,144 @@ header {
     height: 100px;
     margin: 0 auto;
     border: none;
+}
+
+/* ---- project cards & detail page ---- */
+
+.projects-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.projects-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--accent-text);
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--accent-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--text);
+    transform: translateX(-4px);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--gap);
+}
+
+.project-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.project-title-link {
+    text-decoration: none;
+}
+
+.project-card h2 {
+    margin: 0 0 0.5rem;
+    color: var(--text);
+    font-size: 1.25rem;
+    transition: color 0.2s;
+}
+
+.project-card:hover h2 {
+    color: var(--accent-text);
+}
+
+.project-card-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 1rem;
+    flex-grow: 1;
+}
+
+.tech-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tech-tag {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--surface-raised);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    width: fit-content;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.github-btn:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+.project-detail-section {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+}
+
+.project-detail-section h1 {
+    color: var(--accent-text);
+    margin-top: 0;
+}
+
+.project-detail-section h3 {
+    color: var(--text);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.project-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text);
 }
 
 /* ---- responsive ---- */
