@@ -113,6 +113,13 @@ header {
     box-sizing: border-box;
 }
 
+#toolkit-section, 
+#tech-section {
+    max-width: 320px;
+    width: 100%;       /* Ensures it shrinks on screens narrower than 320px */
+    margin: 0 auto;    /* Centers the card inside the column */
+}
+
 .layout section h2 {
     margin: 0 0 1rem;
     color: var(--accent-text);
