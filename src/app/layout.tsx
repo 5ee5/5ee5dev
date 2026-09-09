@@ -29,7 +29,7 @@ export default function RootLayout({
        sticky sidebar. `clip` leaves the other axis alone. */
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} overflow-x-clip`}
+      className={`${geistSans.variable} ${geistMono.variable} scheme-dark overflow-x-clip`}
     >
       <body className="min-h-screen overflow-x-clip bg-background text-foreground">
         {children}

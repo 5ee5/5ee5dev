@@ -33,6 +33,36 @@
     outline: 2px solid var(--color-accent-text);
     outline-offset: 2px;
   }
+
+  /* Accent-red scrollbar. `scheme-dark` on <html> already darkens the native
+     one everywhere; this tints it to match the header. */
+  html {
+    scrollbar-color: var(--color-accent) var(--color-background);
+    scrollbar-width: thin;
+  }
+
+  /* Safari < 18.2 and older Chromium predate `scrollbar-color`. Scoped behind
+     @supports because Chromium ignores ::-webkit-scrollbar entirely once
+     `scrollbar-color` is set, so the two must never both apply. */
+  @supports not (scrollbar-color: auto) {
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--color-background);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-accent);
+      border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-accent-text);
+    }
+  }
 }
 
 /* `items-start` is required: a stretched grid item can't stick. */
