@@ -1,6 +1,9 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import { projects } from "@/data/projects";
+
+type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -8,7 +11,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
 
@@ -24,7 +31,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function ProjectPage({ params }) {
+export default async function ProjectPage({ params }: { params: Params }) {
   const { slug } = await params;
 
   const project = projects.find((p) => p.slug === slug);
@@ -34,13 +41,17 @@ export default async function ProjectPage({ params }) {
       <>
         <Header />
         <main className="layout">
-          <div className="content" style={{ gridColumn: "1 / -1", maxWidth: "800px", margin: "0 auto" }}>
+          <div className="col-span-full mx-auto grid max-w-[800px] gap-5 narrow:contents">
             <Link href="/projects" className="back-link">
               ← Back to Projects
             </Link>
-            <section className="project-detail-section">
-              <h1>Project Not Found</h1>
-              <p>The requested project slug &quot;{slug}&quot; does not exist.</p>
+            <section className="card border-edge p-5 text-center">
+              <h1 className="mt-0 mb-[0.67em] text-[2em] font-bold text-accent-text">
+                Project Not Found
+              </h1>
+              <p className="my-4">
+                The requested project slug &quot;{slug}&quot; does not exist.
+              </p>
             </section>
           </div>
         </main>
@@ -52,19 +63,25 @@ export default async function ProjectPage({ params }) {
     <>
       <Header />
       <main className="layout">
-        <div className="content" style={{ gridColumn: "1 / -1", maxWidth: "800px", margin: "0 auto", width: "100%" }}>
+        <div className="col-span-full mx-auto grid w-full max-w-[800px] gap-5 narrow:contents">
           <Link href="/projects" className="back-link">
             ← Back to Projects
           </Link>
 
-          <section className="project-detail-section">
-            <h1>{project.title}</h1>
-            <p className="project-description">{project.description}</p>
+          <section className="card border-edge p-5 text-center">
+            <h1 className="mt-0 mb-[0.67em] text-[2em] font-bold text-accent-text">
+              {project.title}
+            </h1>
+            <p className="my-[1.1rem] text-[1.1rem] leading-[1.6] text-foreground">
+              {project.description}
+            </p>
 
-            <h3>Technologies</h3>
-            <ul className="tech-tags">
+            <h3 className="mt-6 mb-3 text-[1.17em] font-bold text-foreground">
+              Technologies
+            </h3>
+            <ul className="mb-4 flex flex-wrap gap-[0.4rem]">
               {project.tech.map((tech) => (
-                <li key={tech} className="tech-tag">
+                <li key={tech} className="tag">
                   {tech}
                 </li>
               ))}
@@ -75,10 +92,9 @@ export default async function ProjectPage({ params }) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="github-btn"
-                style={{ marginTop: "1rem" }}
+                className="btn-github mt-4"
               >
-                <i className="fa-brands fa-github"></i> View on GitHub
+                <i className="fa-brands fa-github" /> View on GitHub
               </a>
             )}
           </section>

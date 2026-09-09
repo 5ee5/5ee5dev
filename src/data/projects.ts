@@ -1,4 +1,12 @@
-export const projects = [
+export type Project = {
+  slug: string;
+  title: string;
+  description: string;
+  tech: string[];
+  github?: string;
+};
+
+export const projects: Project[] = [
   {
     slug: "aetheros",
     title: "AetherOS",
@@ -17,8 +25,7 @@ export const projects = [
   {
     slug: "5ee5chat",
     title: "5ee5chat",
-    description:
-      "A simple chat application.",
+    description: "A simple chat application.",
     tech: ["JavaScript"],
     github: "https://github.com/5ee5/5ee5chat",
   },
@@ -33,8 +40,7 @@ export const projects = [
   {
     slug: "spotistats",
     title: "Spotistats",
-    description:
-      "Spotify statistics tracker.",
+    description: "Spotify statistics tracker.",
     tech: ["Python"],
     github: "https://github.com/5ee5/Spotistats",
   },

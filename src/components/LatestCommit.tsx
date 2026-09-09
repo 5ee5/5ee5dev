@@ -2,11 +2,19 @@
 
 import { useState, useEffect, useRef } from "react";
 
-function formatRelativeTime(dateString) {
+type Commit = {
+  html_url: string;
+  commit: {
+    message: string;
+    author: { date: string } | null;
+  };
+};
+
+function formatRelativeTime(dateString?: string): string {
   if (!dateString) return "";
   const date = new Date(dateString);
   const now = new Date();
-  const diffInSeconds = Math.floor((now - date) / 1000);
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
 
   if (diffInSeconds < 60) return "just now";
   if (diffInSeconds < 3600) {
@@ -29,11 +37,11 @@ function formatRelativeTime(dateString) {
 }
 
 export default function LatestCommit() {
-  const [commit, setCommit] = useState(null);
+  const [commit, setCommit] = useState<Commit | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchLatestCommit() {
@@ -44,13 +52,13 @@ export default function LatestCommit() {
         if (!res.ok) {
           throw new Error(`GitHub API ${res.status}`);
         }
-        const data = await res.json();
+        const data: unknown = await res.json();
         if (Array.isArray(data) && data.length > 0) {
-          setCommit(data[0]);
+          setCommit(data[0] as Commit);
         }
       } catch (err) {
         console.error("❌ Commit fetch error:", err);
-        setError(err.message);
+        setError(err instanceof Error ? err.message : String(err));
       } finally {
         setLoading(false);
       }
@@ -60,12 +68,15 @@ export default function LatestCommit() {
   }, []);
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
-    function handleKeyDown(event) {
+    function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setIsOpen(false);
       }
@@ -87,9 +98,9 @@ export default function LatestCommit() {
   const commitDate = commit?.commit?.author?.date;
 
   return (
-    <div className="commit-dropdown" ref={dropdownRef}>
+    <div className="relative" ref={dropdownRef}>
       <button
-        className="dropbtn"
+        className="cursor-pointer rounded-md border-2 border-accent-text bg-background px-3.5 py-2 text-sm font-semibold text-accent-text transition-colors hover:bg-raised hover:text-foreground focus-visible:bg-raised focus-visible:text-foreground"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -98,16 +109,20 @@ export default function LatestCommit() {
       </button>
 
       {isOpen && (
-        <div className="dropdown-content show">
+        <div className="absolute top-[calc(100%+8px)] right-0 z-[1000] max-w-[320px] min-w-[260px] rounded-lg border border-edge bg-raised p-2.5 text-left break-words shadow-[0_8px_24px_rgba(0,0,0,0.5)]">
           {loading && (
-            <small style={{ color: "var(--text-muted)" }}>
+            <small className="text-[11px] text-muted">
               Loading latest commit...
             </small>
           )}
 
-          {error && <small style={{ color: "var(--accent-text)" }}>Error: {error}</small>}
+          {error && (
+            <small className="text-[11px] text-accent-text">Error: {error}</small>
+          )}
 
-          {!loading && !error && !commit && <small>No commit found</small>}
+          {!loading && !error && !commit && (
+            <small className="text-[11px] text-muted">No commit found</small>
+          )}
 
           {!loading && commit && (
             <a
@@ -115,15 +130,20 @@ export default function LatestCommit() {
               target="_blank"
               rel="noreferrer"
               title={commit.commit.message}
+              className="block rounded px-2.5 py-2 text-[13px] text-foreground transition-colors duration-150 hover:bg-surface"
             >
-              <span className="commit-msg-text">{commitMessage}</span>
+              <span className="mb-1 inline-block leading-[1.4] font-semibold">
+                {commitMessage}
+              </span>
               <br />
-              <small>
+              <small className="text-[11px] text-muted">
                 {formatRelativeTime(commitDate)} (
-                {new Date(commitDate).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
+                {commitDate
+                  ? new Date(commitDate).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })
+                  : ""}
                 )
               </small>
             </a>
@@ -133,4 +153,3 @@ export default function LatestCommit() {
     </div>
   );
 }
-
