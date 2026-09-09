@@ -1,535 +1,73 @@
-@import "@fortawesome/fontawesome-free/css/all.min.css";
-
-:root {
-    --bg: #0a0a0a;
-    --surface: #141414;
-    --surface-raised: #1c1c1c;
-    --border: #262626;
-    --accent: #8b0000;
-    --accent-text: #d64545;
-    --text: #f2f2f2;
-    --text-muted: #a3a3a3;
-
-    --radius: 10px;
-    --gap: 1.25rem;
-    --gap-lg: 2.5rem;
-}
-
-/* clip, not hidden: `hidden` on one axis forces the other axis to compute to
-   `auto`, which turns html/body into scroll containers and breaks the sticky
-   sidebar. `clip` leaves the other axis alone. */
-html {
-    overflow-x: clip;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    overflow-x: clip;
-    font-family: Arial, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-}
-
-:focus-visible {
-    outline: 2px solid var(--accent-text);
-    outline-offset: 2px;
-}
-
-header {
-    background: var(--accent);
-    color: var(--bg);
-    padding: 0.8rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    box-sizing: border-box;
-}
-
-.header-title {
-    margin: 0;
-    font-size: 2rem;
-}
-
-.header-title a {
-    color: var(--bg);
-    text-decoration: none;
-}
-
-.header-projects-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background-color: var(--bg);
-    color: var(--accent-text);
-    padding: 8px 14px;
-    font-size: 14px;
-    font-weight: 600;
-    border: 2px solid var(--accent);
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.header-projects-btn:hover {
-    background-color: var(--surface-raised);
-    color: var(--text);
-}
-
-/* ---- layout ---- */
-
-.layout {
-    display: grid;
-    grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
-    gap: var(--gap-lg);
-    align-items: start; /* required: a stretched grid item can't stick */
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem;
-    box-sizing: border-box;
-}
-
-.sidebar {
-    position: sticky;
-    top: 2rem;
-    display: grid;
-    gap: var(--gap);
-}
-
-.content {
-    display: grid;
-    gap: var(--gap);
-}
-
-.layout section {
-    background-color: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-#toolkit-section, 
-#tech-section {
-    max-width: 320px;
-    width: 100%;       /* Ensures it shrinks on screens narrower than 320px */
-    margin: 0 auto;    /* Centers the card inside the column */
-}
-
-.layout section h2 {
-    margin: 0 0 1rem;
-    color: var(--accent-text);
-    font-size: 1.25rem;
-}
-
-/* ---- about ---- */
-
-.circle-image {
-    width: 100%;
-    max-width: 140px;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-#about-me-list {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-top: 10px;
-    text-align: left;
-}
-
-#about-me-list li {
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-
-@keyframes blink {
-    0%, 50%, 100% { opacity: 1; }
-    25%, 75% { opacity: 0; }
-}
-
-/* ---- shared item lists (toolkit / tech / contacts) ---- */
-
-.item-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 0.5rem;
-}
-
-.item-list li {
-    background: var(--surface-raised);
-    border-radius: 6px;
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-}
-
-.item-list li i {
-    font-size: 1.15rem;
-    width: 26px;
-    text-align: center;
-}
-
-/* Font Awesome ships its own colour rules with higher specificity; these stay
-   !important until the duplicate v6-CDN/v7-npm load is sorted out. */
-.html-icon { color: #e34c26 !important; }
-.css-icon { color: #2965f1 !important; }
-.js-icon { color: #f7df1e !important; }
-.react-icon { color: #61dafb !important; }
-.python-icon { color: #f7df1e !important; }
-.linux-icon { color: #ffffff !important; }
-.git-icon { color: #f05033 !important; }
-.discord-icon { color: #5865f2 !important; }
-.mail-icon { color: #dddddd !important; }
-
-/* ---- contacts ---- */
-
-.contact-item {
-    cursor: pointer;
-    user-select: none;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.contact-item:hover {
-    color: var(--accent-text);
-}
-
-.contact-item.copied {
-    background-color: var(--accent);
-    color: var(--text);
-}
-
-/* ---- projects ---- */
-
-.repo-grid {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 0.75rem;
-}
-
-.repo-grid a {
-    display: block;
-    background-color: var(--surface-raised);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 10px 16px;
-    font-size: 0.95rem;
-    border-radius: 8px;
-    text-decoration: none;
-    overflow-wrap: break-word;
-    transition: background-color 0.2s, color 0.2s, transform 0.2s;
-}
-
-.repo-grid a:hover {
-    background-color: var(--accent);
-    color: var(--text);
-    transform: translateY(-2px);
-}
-
-/* ---- latest commit dropdown ---- */
-
-.commit-dropdown {
-    position: relative;
-}
-
-.dropbtn {
-    background-color: var(--bg);
-    color: var(--accent-text);
-    padding: 8px 14px;
-    font-size: 14px;
-    font-weight: 600;
-    border: 2px solid var(--accent-text);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.dropbtn:hover,
-.dropbtn:focus-visible {
-    background-color: var(--surface-raised);
-    color: var(--text);
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: calc(100% + 8px);
-    min-width: 260px;
-    max-width: 320px;
-    background-color: var(--surface-raised);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px;
-    overflow-wrap: break-word;
-    text-align: left;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-
-.dropdown-content.show,
-.commit-dropdown:hover .dropdown-content,
-.commit-dropdown:focus-within .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    display: block;
-    padding: 8px 10px;
-    color: var(--text);
-    font-size: 13px;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.15s;
-}
-
-.dropdown-content a:hover {
-    background-color: var(--surface);
-}
-
-.commit-msg-text {
-    font-weight: 600;
-    line-height: 1.4;
-    display: inline-block;
-    margin-bottom: 4px;
-}
-
-.dropdown-content small {
-    font-size: 11px;
-    color: var(--text-muted);
-}
-
-/* ---- friends / webring ---- */
-
-.blinkies {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.blinkie {
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.blinkie:hover {
-    transform: scale(1.05) translateY(-3px);
-    filter: brightness(1.2);
-}
-
-.copied-message {
-    font-size: 0.95rem;
-    color: var(--accent-text);
-    font-weight: bold;
-}
-
-#webring-section iframe {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    height: 100px;
-    margin: 0 auto;
-    border: none;
-}
-
-/* ---- project cards & detail page ---- */
-
-.projects-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.projects-header h1 {
-    margin: 0;
-    font-size: 2rem;
-    color: var(--accent-text);
-}
-
-.back-link {
-    display: inline-block;
-    color: var(--accent-text);
-    text-decoration: none;
-    font-size: 0.95rem;
-    margin-bottom: 0.75rem;
-    transition: transform 0.2s, color 0.2s;
-}
-
-.back-link:hover {
-    color: var(--text);
-    transform: translateX(-4px);
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--gap);
-}
-
-.project-card {
-    background-color: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: border-color 0.2s, transform 0.2s;
-}
-
-.project-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-}
-
-.project-title-link {
-    text-decoration: none;
-}
-
-.project-card h2 {
-    margin: 0 0 0.5rem;
-    color: var(--text);
-    font-size: 1.25rem;
-    transition: color 0.2s;
-}
-
-.project-card:hover h2 {
-    color: var(--accent-text);
-}
-
-.project-card-desc {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin: 0 0 1rem;
-    flex-grow: 1;
-}
-
-.tech-tags {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-}
-
-.tech-tag {
-    background: var(--surface-raised);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.github-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--surface-raised);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    text-decoration: none;
-    width: fit-content;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.github-btn:hover {
-    background-color: var(--accent);
-    border-color: var(--accent);
-    color: var(--text);
-}
-
-.more-projects-card {
-    border: 1px dashed var(--accent);
-    background: linear-gradient(135deg, var(--surface), var(--surface-raised));
-}
-
-.more-projects-card:hover {
-    border-style: solid;
-}
-
-.project-detail-section {
-    background-color: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 2rem;
-}
-
-.project-detail-section h1 {
-    color: var(--accent-text);
-    margin-top: 0;
-}
-
-.project-detail-section h3 {
-    color: var(--text);
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-}
-
-.project-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text);
-}
-
-/* ---- responsive ---- */
-
+@import "tailwindcss";
+/* Font Awesome ships unlayered, so its rules would outrank Tailwind's utility
+   layer. Importing it into `base` lets ordinary colour utilities win on icons
+   without needing !important on every one. */
+@import "@fortawesome/fontawesome-free/css/all.min.css" layer(base);
+
+/* The site has exactly two breakpoints, neither on Tailwind's default scale. */
+@custom-variant narrow (@media (width < 900px));
 /* A sticky element taller than the viewport has nowhere to travel, so short
    windows fall back to normal flow rather than clipping. */
-@media (max-height: 760px) {
-    .sidebar {
-        position: static;
-    }
+@custom-variant short (@media (height <= 760px));
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-surface: #141414;
+  --color-raised: #1c1c1c;
+  --color-edge: #262626;
+  --color-accent: #8b0000;
+  --color-accent-text: #d64545;
+  --color-foreground: #f2f2f2;
+  --color-muted: #a3a3a3;
+
+  --radius-card: 10px;
+
+  --font-sans: Arial, sans-serif;
+
+  --default-transition-duration: 200ms;
+  --default-transition-timing-function: ease;
 }
 
-@media (max-width: 900px) {
-    .layout {
-        grid-template-columns: 1fr;
-        gap: var(--gap);
-        padding: 1.25rem;
-    }
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-accent-text);
+    outline-offset: 2px;
+  }
+}
 
-    /* Unwrap both rails so all seven sections become direct grid items and can
-       be individually ordered for mobile reading order. */
-    .sidebar,
-    .content {
-        display: contents;
-    }
+/* `items-start` is required: a stretched grid item can't stick. */
+@utility layout {
+  @apply mx-auto grid w-full max-w-[1100px] grid-cols-[minmax(240px,280px)_minmax(0,1fr)]
+         items-start gap-10 p-8
+         narrow:grid-cols-1 narrow:gap-5 narrow:p-5;
+}
 
-    .sidebar {
-        position: static;
-    }
+/* Panel chrome shared by section cards, project cards, and the detail panel.
+   Border *colour* stays out of here so callers can override it per state. */
+@utility card {
+  @apply rounded-card border bg-surface;
+}
 
-    #bio { order: 1; }
-    #toolkit-section { order: 2; }
-    #tech-section { order: 3; }
-    #github-section { order: 4; }
-    #contacts-section { order: 5; }
-    #friends-section { order: 6; }
-    #webring-section { order: 7; }
+/* A row in the toolkit / tech / contacts lists. */
+@utility item-row {
+  @apply flex items-center justify-center gap-[0.6rem] rounded-md px-4 py-[0.6rem] text-base;
+
+  & i {
+    @apply w-[26px] text-center text-[1.15rem];
+  }
+}
+
+@utility tag {
+  @apply rounded border border-edge bg-raised px-2 py-1 text-[0.8rem] text-muted;
+}
+
+@utility btn-github {
+  @apply inline-flex w-fit items-center gap-2 rounded-md border border-edge bg-raised
+         px-4 py-2 text-[0.9rem] text-foreground transition-colors
+         hover:border-accent hover:bg-accent hover:text-foreground;
+}
+
+@utility back-link {
+  @apply mb-3 inline-block text-[0.95rem] text-accent-text transition
+         hover:-translate-x-1 hover:text-foreground;
 }
