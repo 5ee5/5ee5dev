@@ -6,7 +6,7 @@ export default async function ProjectCard({ project }: { project: Project }) {
   const meta = await getRepoMeta(project.github);
 
   return (
-    <article className="card flex flex-col justify-between border-edge p-5 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent">
+    <article className="card group flex flex-col justify-between border-edge p-5 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent">
       <div>
         <Link href={`/projects/${project.slug}`}>
           <h2 className="mb-4 text-[1.25rem] font-bold text-accent-text">
@@ -25,7 +25,11 @@ export default async function ProjectCard({ project }: { project: Project }) {
               {tech}
             </li>
           ))}
-          {meta?.archived && <li className="tag">Archived</li>}
+          {meta?.archived && (
+            <li className="tag transition-colors group-hover:border-accent">
+              Archived
+            </li>
+          )}
         </ul>
 
         {project.github && (
