@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "deploy": "next build && pm2 restart 5ee5dev --update-env",
-    "deploy:full": "git pull && npm ci && next build && pm2 restart 5ee5dev --update-env"
+    "deploy:full": "git pull && npm ci && next build && pm2 restart 5ee5dev --update-env",
+    "worker:deploy": "npx --yes wrangler@4 deploy --config worker/wrangler.toml"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.3.1",

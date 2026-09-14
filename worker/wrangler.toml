@@ -1,0 +1,10 @@
+name = "5ee5-offline"
+main = "index.js"
+compatibility_date = "2026-09-14"
+
+# No *.workers.dev URL -- this Worker only ever serves 5ee5.dev.
+workers_dev = false
+
+[[routes]]
+pattern = "5ee5.dev/*"
+zone_name = "5ee5.dev"
