@@ -40,8 +40,7 @@ export default function ProjectsPage() {
                   </h2>
                 </a>
                 <p className="mb-4 text-[0.95rem] leading-[1.5] text-muted">
-                  Browse the complete list of public GitHub repositories, code
-                  snippets, and experimental builds.
+                  See my other repositories
                 </p>
               </div>
 
