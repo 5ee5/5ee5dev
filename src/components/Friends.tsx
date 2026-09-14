@@ -10,13 +10,12 @@ const blinkieClass =
   "cursor-pointer transition-[transform,filter] select-none hover:-translate-y-[3px] hover:scale-105 hover:brightness-[1.2]";
 
 export default function Friends({ className = "" }: { className?: string }) {
-  const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState<"ok" | "fail" | null>(null);
 
   const handleCopy = async () => {
-    if (await copyText(BLINKIE_EMBED)) {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    }
+    const ok = await copyText(BLINKIE_EMBED);
+    setStatus(ok ? "ok" : "fail");
+    setTimeout(() => setStatus(null), ok ? 3000 : 2500);
   };
 
   return (
@@ -29,7 +28,7 @@ export default function Friends({ className = "" }: { className?: string }) {
       </h2>
 
       <div className="flex flex-wrap items-center justify-center gap-4">
-        {!copied ? (
+        {!status ? (
           <Image
             src="/5ee5.png"
             width={88}
@@ -42,8 +41,11 @@ export default function Friends({ className = "" }: { className?: string }) {
             unoptimized
           />
         ) : (
-          <p className="my-[0.95rem] text-[0.95rem] font-bold text-accent-text">
-            Copied!
+          <p
+            aria-live="polite"
+            className="my-[0.95rem] text-[0.95rem] font-bold text-accent-text"
+          >
+            {status === "ok" ? "Copied!" : "Copy failed"}
           </p>
         )}
 

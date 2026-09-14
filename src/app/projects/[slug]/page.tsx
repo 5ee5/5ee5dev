@@ -64,7 +64,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
               {project.description}
             </p>
 
-            {meta && (
+            {meta ? (
               <ul className="mb-4 flex flex-wrap gap-[0.4rem]">
                 <li className="tag">
                   Started {new Date(meta.createdAt).getFullYear()}
@@ -75,6 +75,10 @@ export default async function ProjectPage({ params }: { params: Params }) {
                 {meta.stars > 0 && <li className="tag">★ {meta.stars}</li>}
                 {meta.archived && <li className="tag">Archived</li>}
               </ul>
+            ) : (
+              <p className="mb-4 text-[0.8rem] text-muted">
+                Repo details unavailable right now.
+              </p>
             )}
 
             <h3 className="mt-6 mb-3 text-[1.17em] font-bold text-foreground">

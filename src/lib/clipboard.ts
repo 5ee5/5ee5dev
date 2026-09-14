@@ -27,6 +27,9 @@ export async function copyText(text: string): Promise<boolean> {
     textarea.setSelectionRange(0, 99999);
     const ok = document.execCommand("copy");
     document.body.removeChild(textarea);
+    if (!ok) {
+      console.warn("Fallback copy rejected by the browser");
+    }
     return ok;
   } catch (err) {
     console.error("Fallback copy error:", err);

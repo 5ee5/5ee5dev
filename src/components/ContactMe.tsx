@@ -28,13 +28,16 @@ const contacts = [
 ];
 
 export default function ContactMe({ className = "" }: { className?: string }) {
-  const [copied, setCopied] = useState<string | null>(null);
+  const [status, setStatus] = useState<{ id: string; ok: boolean } | null>(
+    null
+  );
 
   const handleCopy = async (text: string, id: string) => {
-    if (await copyText(text)) {
-      setCopied(id);
-      setTimeout(() => setCopied(null), 1500);
-    }
+    const ok = await copyText(text);
+    setStatus({ id, ok });
+    // Failures linger a little longer, since they need reading rather than
+    // just acknowledging.
+    setTimeout(() => setStatus(null), ok ? 1500 : 2500);
   };
 
   return (
@@ -44,13 +47,18 @@ export default function ContactMe({ className = "" }: { className?: string }) {
     >
       <h2 className="mb-4 text-[1.25rem] font-bold text-accent-text">Contact Me</h2>
       <ul className="grid gap-2">
-        {contacts.map((c) => (
+        {contacts.map((c) => {
+          const state = status?.id === c.id ? status : null;
+
+          return (
           <li
             key={c.id}
             className={`item-row cursor-pointer transition-colors select-none ${
-              copied === c.id
+              state?.ok
                 ? "bg-accent text-foreground"
-                : "bg-raised hover:text-accent-text"
+                : state
+                  ? "bg-raised text-accent-text"
+                  : "bg-raised hover:text-accent-text"
             }`}
             onClick={() => handleCopy(c.value, c.id)}
             onKeyDown={(e) => {
@@ -64,9 +72,12 @@ export default function ContactMe({ className = "" }: { className?: string }) {
             aria-label={`Copy ${c.label}`}
           >
             <i className={`${c.icon} ${c.color}`} />
-            {copied === c.id ? "Copied!" : c.label}
+            <span aria-live="polite">
+              {state ? (state.ok ? "Copied!" : "Copy failed") : c.label}
+            </span>
           </li>
-        ))}
+          );
+        })}
       </ul>
     </section>
   );
