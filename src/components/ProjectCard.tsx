@@ -1,7 +1,10 @@
 import Link from "next/link";
 import type { Project } from "@/data/projects";
+import { getRepoMeta } from "@/lib/github";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default async function ProjectCard({ project }: { project: Project }) {
+  const meta = await getRepoMeta(project.github);
+
   return (
     <article className="card flex flex-col justify-between border-edge p-5 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent">
       <div>
@@ -22,6 +25,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               {tech}
             </li>
           ))}
+          {meta?.archived && <li className="tag">Archived</li>}
         </ul>
 
         {project.github && (
