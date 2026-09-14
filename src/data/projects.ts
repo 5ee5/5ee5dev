@@ -39,9 +39,13 @@ export const projects: Project[] = [
     slug: "5ee5chat",
     title: "5ee5chat",
     description: "A simple chat application.",
-    tech: ["JavaScript"],
+    tech: ["JavaScript", "Express", "Socket.IO", "Redis"],
     github: "https://github.com/5ee5/5ee5chat",
-    // TODO: add highlights -- left blank rather than guessed at.
+    highlights: [
+      "Real-time messaging over Socket.IO on an Express server",
+      "Redis-backed history, trimmed to the last 100 messages",
+      "Per-connection rate limiting and username/message length caps",
+    ],
   },
   {
     slug: "dungeon-crawler",
@@ -61,8 +65,13 @@ export const projects: Project[] = [
     slug: "spotistats",
     title: "Spotistats",
     description: "Spotify statistics tracker.",
-    tech: ["Python"],
+    tech: ["Python", "Spotify API", "pandas"],
     github: "https://github.com/5ee5/Spotistats",
-    // TODO: add highlights -- left blank rather than guessed at.
+    highlights: [
+      "Pulls top artists and tracks over three timeframes from the Spotify Web API",
+      "Also captures recently played tracks",
+      "Writes clean JSON per timeframe, overwritten on each run",
+      "Credentials read from a .env file; runs silently by default",
+    ],
   },
 ];
