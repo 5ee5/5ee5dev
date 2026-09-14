@@ -1,7 +1,7 @@
 const hardware = [
   { icon: "fa-solid fa-laptop", label: "Lenovo Ideapad Gaming 3" },
   { icon: "fa-solid fa-server", label: "Xeon E5-2680 v4" },
-  { icon: "fa-brands fa-apple", label: "MacBook Pro 2016" },
+  { icon: "fa-brands fa-apple", label: "MacBook Pro 2017" },
 ];
 
 export default function Tech({ className = "" }: { className?: string }) {
