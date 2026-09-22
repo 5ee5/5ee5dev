@@ -55,11 +55,47 @@ export default function Friends({ className = "" }: { className?: string }) {
             width={88}
             height={31}
             alt="pre1ude.dev"
+            title="Laura!"
             className={blinkieClass}
             draggable={false}
             unoptimized
           />
         </a>
+
+        <a
+          href="https://www.gentoo.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="/gentoo.png"
+            width={88}
+            height={31}
+            alt="Gentoo Linux"
+            title="Gentoo!"
+            className={blinkieClass}
+            draggable={false}
+            unoptimized
+          />
+        </a>
+
+        <a
+          href="https://www.linux.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="/linux.png"
+            width={88}
+            height={31}
+            alt="Linux"
+            title="Linux!"
+            className={blinkieClass}
+            draggable={false}
+            unoptimized
+          />
+        </a>
+
       </div>
     </section>
   );
