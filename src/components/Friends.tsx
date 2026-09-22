@@ -80,7 +80,7 @@ export default function Friends({ className = "" }: { className?: string }) {
         </a>
 
         <a
-          href="https://www.linux.org/"
+          href="https://www.kernel.org/"
           target="_blank"
           rel="noopener noreferrer"
         >
