@@ -21,7 +21,7 @@ const contacts = [
   {
     id: "mail",
     icon: "fa-solid fa-envelope",
-    color: "text-[#dddddd]",
+    color: "text-[#4ade80]",
     label: "Mail",
     value: "e5@5ee5.dev",
   },
