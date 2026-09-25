@@ -11,7 +11,7 @@ export default function HeaderShell({
   children?: React.ReactNode;
 }) {
   return (
-    <header className="relative flex items-center justify-between bg-accent px-6 py-[0.8rem] text-background">
+    <header className="relative flex items-center justify-between bg-accent px-6 py-[0.8rem] text-foreground">
       <div>
         <Link
           href="/projects"

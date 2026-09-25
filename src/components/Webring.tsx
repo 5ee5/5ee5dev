@@ -5,7 +5,7 @@ export default function Webring({ className = "" }: { className?: string }) {
       className={`card border-edge p-5 text-center ${className}`}
     >
       <iframe
-        src="https://ring.pre1ude.dev/ring?url=https://5ee5.dev/&fgcolor=8B0000&bgcolor=000000"
+        src="https://ring.pre1ude.dev/ring?url=https://5ee5.dev/&fgcolor=4ADE80&bgcolor=141414"
         width="230"
         height="100"
         title="webring"

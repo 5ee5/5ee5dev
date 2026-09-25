@@ -15,8 +15,8 @@
   --color-surface: #141414;
   --color-raised: #1c1c1c;
   --color-edge: #262626;
-  --color-accent: #8b0000;
-  --color-accent-text: #d64545;
+  --color-accent: #166534;
+  --color-accent-text: #4ade80;
   --color-foreground: #f2f2f2;
   --color-muted: #a3a3a3;
 
@@ -34,7 +34,7 @@
     outline-offset: 2px;
   }
 
-  /* Accent-red scrollbar. `scheme-dark` on <html> already darkens the native
+  /* Accent-green scrollbar. `scheme-dark` on <html> already darkens the native
      one everywhere; this tints it to match the header. */
   html {
     scrollbar-color: var(--color-accent) var(--color-background);
