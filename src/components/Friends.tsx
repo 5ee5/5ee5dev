@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import blinkieImage from "../../public/5ee5.png";
 import { copyText } from "@/lib/clipboard";
 
-const BLINKIE_EMBED = `<a href="https://5ee5.dev" target="_blank"><img src="https://5ee5.dev/5ee5.png" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
+const BLINKIE_EMBED = `<a href="https://5ee5.dev" target="_blank"><img src="https://5ee5.dev${blinkieImage.src}" width="88" height="31" alt="5ee5's Blinkie" /></a>`;
 
 const blinkieClass =
   "cursor-pointer transition-[transform,filter] select-none hover:-translate-y-[3px] hover:scale-105 hover:brightness-[1.2]";
@@ -30,7 +31,7 @@ export default function Friends({ className = "" }: { className?: string }) {
       <div className="flex flex-wrap items-center justify-center gap-4">
         {!status ? (
           <Image
-            src="/5ee5.png"
+            src={blinkieImage}
             width={88}
             height={31}
             alt="5ee5 Blinkie"

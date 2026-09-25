@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import profileImage from "../../public/e5.png";
+import blinkieImage from "../../public/5ee5.png";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,11 +14,11 @@ export const metadata: Metadata = {
     description: "Developer, Linux enthusiast, Runner.",
     url: "https://5ee5.dev/",
     siteName: "5ee5.dev",
-    images: ["https://5ee5.dev/e5.png"],
+    images: [`https://5ee5.dev${profileImage.src}`],
   },
   other: {
     "pride-flag": "transgender",
-    "site-button": "https://5ee5.dev/5ee5.png",
+    "site-button": `https://5ee5.dev${blinkieImage.src}`,
   },
 };
 
