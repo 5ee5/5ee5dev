@@ -4,23 +4,26 @@ export type Project = {
   description: string;
   tech: string[];
   github?: string;
+  /** Live site, shown as a second button next to the GitHub link. */
+  url?: string;
   /** 3-5 bullets for the detail page. Omit to hide the Highlights section. */
   highlights?: string[];
 };
 
 export const projects: Project[] = [
   {
-    slug: "aetheros",
-    title: "AetherOS",
+    slug: "codebuddy",
+    title: "CodeBuddy",
     description:
-      "A hobby x86-64 operating system with UEFI boot, SMP, scheduler, user-space processes, and a shell.",
-    tech: ["C", "x86-64", "UEFI"],
-    github: "https://github.com/5ee5/AetherOS",
+      "AI programming tutor for beginners: explains concepts, helps debug code, and offers practice exercises.",
+    tech: ["Next.js", "TypeScript", "Supabase", "Claude API"],
+    github: "https://github.com/5ee5/codebuddy",
+    url: "https://codebuddy.5ee5.dev",
     highlights: [
-      "Boots on x86-64 via UEFI",
-      "Symmetric multiprocessing (SMP) support",
-      "Scheduler with user-space processes",
-      "Interactive shell",
+      "Learn and Debug modes powered by Claude, adapted to the learner's level",
+      "Practice mode checks answers locally, without AI, and is open to everyone",
+      "Class-code sign-up, email confirmation and password reset via Resend",
+      "Self-hosted with PM2 behind a Cloudflare Tunnel",
     ],
   },
   {

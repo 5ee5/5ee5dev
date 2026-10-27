@@ -112,16 +112,28 @@ export default async function ProjectPage({ params }: { params: Params }) {
             </>
           )}
 
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-github"
-            >
-              <i className="fa-brands fa-github" /> view on github
-            </a>
-          )}
+          <div className="flex flex-wrap gap-2">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-github"
+              >
+                <i className="fa-brands fa-github" /> view on github
+              </a>
+            )}
+            {project.url && (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-github"
+              >
+                <i className="fa-solid fa-globe" /> live site ↗
+              </a>
+            )}
+          </div>
         </section>
       </main>
     </>
