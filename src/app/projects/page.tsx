@@ -15,48 +15,42 @@ export default function ProjectsPage() {
     <>
       <Header />
       <main className="layout">
-        <div className="col-span-full grid gap-5 narrow:contents">
-          <div className="mb-4 flex flex-col items-start gap-2">
-            <Link href="/" className="back-link">
-              ← Back to Home
-            </Link>
-            <h1 className="text-[2rem] font-bold text-accent-text">Projects</h1>
-          </div>
+        <Link href="/" className="back-link">
+          $ cd ~
+        </Link>
 
-          <section className="card grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-5 border-edge p-5 text-center">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-
-            <article className="flex flex-col justify-between rounded-card border border-dashed border-accent bg-linear-135 from-surface to-raised p-5 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-solid">
-              <div>
-                <a
-                  href="https://github.com/5ee5?tab=repositories"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <h2 className="mb-4 text-[1.25rem] font-bold text-accent-text">
-                    All Repositories ↗
-                  </h2>
-                </a>
-                <p className="mb-4 text-[0.95rem] leading-[1.5] text-muted">
-                  See my other repositories
-                </p>
-              </div>
-
-              <div>
-                <a
-                  href="https://github.com/5ee5?tab=repositories"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-github"
-                >
-                  <i className="fa-brands fa-github" /> GitHub Repositories
-                </a>
-              </div>
-            </article>
-          </section>
+        <div>
+          <p className="text-muted">$ ls ~/projects</p>
+          <h1 className="font-display text-[72px] leading-none text-accent-text [text-shadow:0_0_14px_rgb(74_222_128/0.4)]">
+            projects/
+          </h1>
         </div>
+
+        <section className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
+          {projects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+
+          <article className="flex flex-col justify-between border border-dashed border-edge p-6 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent-text">
+            <div>
+              <h2 className="mb-3 text-[1.15rem] font-bold text-accent-text">
+                ~/github/*
+              </h2>
+              <p className="mb-4 text-[0.95rem] leading-[1.6] text-muted">
+                See my other repositories
+              </p>
+            </div>
+
+            <a
+              href="https://github.com/5ee5?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-github"
+            >
+              <i className="fa-brands fa-github" /> all repositories ↗
+            </a>
+          </article>
+        </section>
       </main>
     </>
   );

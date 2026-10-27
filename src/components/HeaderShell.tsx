@@ -11,19 +11,20 @@ export default function HeaderShell({
   children?: React.ReactNode;
 }) {
   return (
-    <header className="relative flex items-center justify-between bg-accent px-6 py-[0.8rem] text-foreground">
-      <div>
+    <header className="relative flex items-center justify-between gap-3 border-b border-edge bg-header px-6 py-[0.8rem] text-on-header narrow:px-4">
+      <Link href="/" className="font-bold transition-colors hover:text-foreground">
+        5ee5<span className="text-muted max-sm:hidden">@gentoo:~$</span>
+      </Link>
+
+      <nav className="flex items-center gap-4">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-[0.4rem] rounded-md border-2 border-accent bg-background px-3.5 py-2 text-sm font-semibold text-accent-text transition-colors hover:bg-raised hover:text-foreground"
+          className="text-accent-text transition-colors hover:text-foreground"
         >
-          <i className="fa-solid fa-code-fork" /> Projects
+          [projects]
         </Link>
-      </div>
-
-      <h1 className="text-[2rem] font-bold">5ee5</h1>
-
-      <div>{children}</div>
+        {children}
+      </nav>
     </header>
   );
 }

@@ -47,16 +47,16 @@ export default function CommitDropdown({
   return (
     <div className="relative" ref={dropdownRef}>
       <button
-        className="cursor-pointer rounded-md border-2 border-accent-text bg-background px-3.5 py-2 text-sm font-semibold text-accent-text transition-colors hover:bg-raised hover:text-foreground focus-visible:bg-raised focus-visible:text-foreground"
+        className="cursor-pointer border border-edge bg-transparent px-3 py-1.5 text-sm text-accent-text transition-colors hover:bg-raised hover:text-foreground focus-visible:bg-raised focus-visible:text-foreground"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        Latest Commit ▾
+        git log -1 ▾
       </button>
 
       {isOpen && (
-        <div className="absolute top-[calc(100%+8px)] right-0 z-[1000] max-w-[320px] min-w-[260px] rounded-lg border border-edge bg-raised p-2.5 text-left break-words shadow-[0_8px_24px_rgba(0,0,0,0.5)]">
+        <div className="absolute top-[calc(100%+8px)] right-0 z-[1000] max-w-[320px] min-w-[260px] border border-edge bg-raised p-2.5 text-left break-words shadow-[0_8px_24px_rgba(0,0,0,0.5)]">
           {!commit && (
             <small className="text-[11px] text-muted">No commit found</small>
           )}
@@ -67,7 +67,7 @@ export default function CommitDropdown({
               target="_blank"
               rel="noreferrer"
               title={commit.message}
-              className="block rounded px-2.5 py-2 text-[13px] text-foreground transition-colors duration-150 hover:bg-surface"
+              className="block px-2.5 py-2 text-[13px] text-foreground transition-colors duration-150 hover:bg-surface"
             >
               <span className="mb-1 inline-block leading-[1.4] font-semibold">
                 {commitMessage}

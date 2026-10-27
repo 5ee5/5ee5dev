@@ -50,73 +50,79 @@ export default async function ProjectPage({ params }: { params: Params }) {
   return (
     <>
       <Header />
-      <main className="layout">
-        <div className="col-span-full mx-auto grid w-full max-w-[800px] gap-5 narrow:contents">
-          <Link href="/projects" className="back-link">
-            ← Back to Projects
-          </Link>
+      <main className="layout max-w-[860px]">
+        <Link href="/projects" className="back-link">
+          $ cd ..
+        </Link>
 
-          <section className="card border-edge p-5 text-center">
-            <h1 className="mt-0 mb-[0.67em] text-[2em] font-bold text-accent-text">
-              {project.title}
-            </h1>
-            <p className="my-[1.1rem] text-[1.1rem] leading-[1.6] text-foreground">
-              {project.description}
+        <section className="card p-6">
+          <p className="text-muted">$ cat ~/projects/{project.slug}/README</p>
+          <h1 className="mt-2 mb-4 font-display text-[64px] leading-none text-accent-text [text-shadow:0_0_14px_rgb(74_222_128/0.4)]">
+            {project.title}
+          </h1>
+          <p className="mb-6 text-[1.05rem] leading-[1.7]">
+            {project.description}
+          </p>
+
+          {meta ? (
+            <dl className="mb-6 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5">
+              <dt className="text-muted">started</dt>
+              <dd>{new Date(meta.createdAt).getFullYear()}</dd>
+              <dt className="text-muted">updated</dt>
+              <dd>{formatRelativeTime(meta.pushedAt)}</dd>
+              {meta.stars > 0 && (
+                <>
+                  <dt className="text-muted">stars</dt>
+                  <dd>★ {meta.stars}</dd>
+                </>
+              )}
+              {meta.archived && (
+                <>
+                  <dt className="text-muted">status</dt>
+                  <dd>archived</dd>
+                </>
+              )}
+            </dl>
+          ) : (
+            <p className="mb-6 text-[0.8rem] text-muted">
+              Repo details unavailable right now.
             </p>
+          )}
 
-            {meta ? (
-              <ul className="mb-4 flex flex-wrap gap-[0.4rem]">
-                <li className="tag">
-                  Started {new Date(meta.createdAt).getFullYear()}
-                </li>
-                <li className="tag">
-                  Updated {formatRelativeTime(meta.pushedAt)}
-                </li>
-                {meta.stars > 0 && <li className="tag">★ {meta.stars}</li>}
-                {meta.archived && <li className="tag">Archived</li>}
+          <h2 className="prompt">## tech</h2>
+          <ul className="mb-6 flex flex-wrap gap-[0.4rem]">
+            {project.tech.map((tech) => (
+              <li key={tech} className="tag">
+                {tech}
+              </li>
+            ))}
+          </ul>
+
+          {project.highlights && project.highlights.length > 0 && (
+            <>
+              <h2 className="prompt">## highlights</h2>
+              <ul className="mb-6 grid gap-1.5 leading-[1.6]">
+                {project.highlights.map((highlight) => (
+                  <li key={highlight} className="flex gap-2">
+                    <span aria-hidden="true" className="text-accent-text">-</span>
+                    {highlight}
+                  </li>
+                ))}
               </ul>
-            ) : (
-              <p className="mb-4 text-[0.8rem] text-muted">
-                Repo details unavailable right now.
-              </p>
-            )}
+            </>
+          )}
 
-            <h3 className="mt-6 mb-3 text-[1.17em] font-bold text-foreground">
-              Technologies
-            </h3>
-            <ul className="mb-4 flex flex-wrap gap-[0.4rem]">
-              {project.tech.map((tech) => (
-                <li key={tech} className="tag">
-                  {tech}
-                </li>
-              ))}
-            </ul>
-
-            {project.highlights && project.highlights.length > 0 && (
-              <>
-                <h3 className="mt-6 mb-3 text-[1.17em] font-bold text-foreground">
-                  Highlights
-                </h3>
-                <ul className="mb-4 list-disc pl-5 text-left leading-[1.6]">
-                  {project.highlights.map((highlight) => (
-                    <li key={highlight}>{highlight}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-github mt-4"
-              >
-                <i className="fa-brands fa-github" /> View on GitHub
-              </a>
-            )}
-          </section>
-        </div>
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-github"
+            >
+              <i className="fa-brands fa-github" /> view on github
+            </a>
+          )}
+        </section>
       </main>
     </>
   );

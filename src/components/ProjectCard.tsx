@@ -6,14 +6,14 @@ export default async function ProjectCard({ project }: { project: Project }) {
   const meta = await getRepoMeta(project.github);
 
   return (
-    <article className="card group flex flex-col justify-between border-edge p-5 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent">
+    <article className="card group flex flex-col justify-between p-6 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent-text">
       <div>
         <Link href={`/projects/${project.slug}`}>
-          <h2 className="mb-4 text-[1.25rem] font-bold text-accent-text">
-            {project.title}
+          <h2 className="mb-3 text-[1.15rem] font-bold text-accent-text transition-colors hover:text-foreground">
+            {project.slug}/
           </h2>
         </Link>
-        <p className="mb-4 text-[0.95rem] leading-[1.5] text-muted">
+        <p className="mb-4 text-[0.95rem] leading-[1.6] text-muted">
           {project.description}
         </p>
       </div>
@@ -26,8 +26,8 @@ export default async function ProjectCard({ project }: { project: Project }) {
             </li>
           ))}
           {meta?.archived && (
-            <li className="tag transition-colors group-hover:border-accent">
-              Archived
+            <li className="tag transition-colors group-hover:border-accent-text">
+              archived
             </li>
           )}
         </ul>
@@ -39,7 +39,7 @@ export default async function ProjectCard({ project }: { project: Project }) {
             rel="noopener noreferrer"
             className="btn-github"
           >
-            <i className="fa-brands fa-github" /> View on GitHub
+            <i className="fa-brands fa-github" /> view on github
           </a>
         )}
       </div>

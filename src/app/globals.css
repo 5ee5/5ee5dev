@@ -4,25 +4,26 @@
    without needing !important on every one. */
 @import "@fortawesome/fontawesome-free/css/all.min.css" layer(base);
 
-/* The site has exactly two breakpoints, neither on Tailwind's default scale. */
+/* The site's one breakpoint, not on Tailwind's default scale. */
 @custom-variant narrow (@media (width < 900px));
-/* A sticky element taller than the viewport has nowhere to travel, so short
-   windows fall back to normal flow rather than clipping. */
-@custom-variant short (@media (height <= 760px));
 
+/* Phosphor-terminal palette. The font variables come from next/font in
+   src/app/fonts.ts, applied as classes on <html>. */
 @theme {
-  --color-background: #0a0a0a;
-  --color-surface: #141414;
-  --color-raised: #1c1c1c;
-  --color-edge: #262626;
+  --color-background: #040a06;
+  --color-surface: #06100a;
+  --color-raised: #0a1a10;
+  --color-edge: #1d4a2c;
   --color-accent: #166534;
   --color-accent-text: #4ade80;
-  --color-foreground: #f2f2f2;
-  --color-muted: #a3a3a3;
+  --color-on-accent: #d9ffe4;
+  --color-foreground: #c6f6d3;
+  --color-muted: #6fbf88;
+  --color-header: #071209;
+  --color-on-header: #8ff0ad;
 
-  --radius-card: 10px;
-
-  --font-sans: Arial, sans-serif;
+  --font-sans: var(--font-jetbrains), monospace;
+  --font-display: var(--font-vt323), monospace;
 
   --default-transition-duration: 200ms;
   --default-transition-timing-function: ease;
@@ -35,7 +36,7 @@
   }
 
   /* Accent-green scrollbar. `scheme-dark` on <html> already darkens the native
-     one everywhere; this tints it to match the header. */
+     one everywhere; this tints it to match. */
   html {
     scrollbar-color: var(--color-accent) var(--color-background);
     scrollbar-width: thin;
@@ -56,7 +57,6 @@
 
     ::-webkit-scrollbar-thumb {
       background: var(--color-accent);
-      border-radius: 6px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
@@ -65,39 +65,31 @@
   }
 }
 
-/* `items-start` is required: a stretched grid item can't stick. */
 @utility layout {
-  @apply mx-auto grid w-full max-w-[1100px] grid-cols-[minmax(240px,280px)_minmax(0,1fr)]
-         items-start gap-10 p-8
-         narrow:grid-cols-1 narrow:gap-5 narrow:p-5;
+  @apply mx-auto grid w-full max-w-[1200px] content-start gap-5 p-8 narrow:p-4;
 }
 
-/* Panel chrome shared by section cards, project cards, and the detail panel.
-   Border *colour* stays out of here so callers can override it per state. */
+/* A bordered pane, like a tmux split. Padding stays with the caller. */
 @utility card {
-  @apply rounded-card border bg-surface;
+  @apply border border-edge bg-surface;
 }
 
-/* A row in the toolkit / tech / contacts lists. */
-@utility item-row {
-  @apply flex items-center justify-center gap-[0.6rem] rounded-md px-4 py-[0.6rem] text-base;
-
-  & i {
-    @apply w-[26px] text-center text-[1.15rem];
-  }
+/* The `$ command` line that heads each pane. */
+@utility prompt {
+  @apply mb-3 text-[15px] font-normal text-muted;
 }
 
 @utility tag {
-  @apply rounded border border-edge bg-raised px-2 py-1 text-[0.8rem] text-muted;
+  @apply border border-edge bg-raised px-2 py-1 text-[0.8rem] text-muted;
 }
 
 @utility btn-github {
-  @apply inline-flex w-fit items-center gap-2 rounded-md border border-edge bg-raised
-         px-4 py-2 text-[0.9rem] text-foreground transition-colors
-         hover:border-accent hover:bg-accent hover:text-foreground;
+  @apply inline-flex w-fit items-center gap-2 border border-edge bg-raised
+         px-4 py-2 text-[0.9rem] text-accent-text transition-colors
+         hover:border-accent hover:bg-accent hover:text-on-accent;
 }
 
 @utility back-link {
-  @apply mb-3 inline-block text-[0.95rem] text-accent-text transition
+  @apply inline-block w-fit text-[0.95rem] text-accent-text transition
          hover:-translate-x-1 hover:text-foreground;
 }

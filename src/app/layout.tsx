@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import profileImage from "../../public/e5.png";
 import blinkieImage from "../../public/5ee5.png";
+import { fontVariables } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,14 +24,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#4ADE80",
+  themeColor: "#071209",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scheme-dark overflow-x-clip">
+    <html lang="en" className={`scheme-dark overflow-x-clip ${fontVariables}`}>
       <body className="min-h-screen overflow-x-clip bg-background text-foreground">
         {children}
       </body>
