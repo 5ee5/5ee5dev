@@ -19,7 +19,7 @@ export default function Home() {
             width={168}
             height={168}
             priority
-            className="size-[168px] shrink-0 border-2 border-accent-text object-cover [filter:grayscale(0.3)_sepia(0.25)_hue-rotate(70deg)_saturate(1.4)]"
+            className="size-[168px] shrink-0 border-2 border-accent-text object-cover"
           />
           <div className="grid gap-2.5">
             <span className="text-muted">$ cat ~/.plan</span>
@@ -55,7 +55,7 @@ export default function Home() {
         </section>
 
         <section className="card p-6">
-          <h2 className="prompt">$ neofetch --hw</h2>
+          <h2 className="prompt">$ fastfetch --hw</h2>
           <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2.5">
             {hardware.map((h) => (
               <div key={h.label} className="contents">

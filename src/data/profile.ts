@@ -2,7 +2,7 @@
 
 export const roles = ["Developer", "Linux Enthusiast", "Runner"];
 
-export const tools = ["HTML", "CSS", "JS", "React", "Python", "Linux", "Git"];
+export const tools = ["HTML", "CSS", "JS", "nodejs", "Python", "Linux", "Git"];
 
 export const hardware = [
   { kind: "laptop", label: "Lenovo Ideapad Gaming 3" },
