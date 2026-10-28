@@ -22,9 +22,14 @@ export default function Home() {
             className="size-[168px] shrink-0 border-2 border-accent-text object-cover"
           />
           <div className="grid gap-2.5">
-            <span className="text-muted">$ cat ~/.plan</span>
+            <span className="text-muted">$ whoami</span>
             <h1 className="font-display text-[132px] leading-[0.85] text-accent-text [text-shadow:0_0_18px_rgb(74_222_128/0.45)] narrow:text-[96px]">
-              5ee5<span className="motion-safe:animate-pulse">_</span>
+              {/* Clip only horizontally, so tall glyphs aren't cut off at
+                  this tight line height and the baseline stays put. */}
+              <span className="inline-block overflow-x-clip align-baseline whitespace-nowrap motion-safe:animate-type">
+                5ee5
+              </span>
+              <span className="motion-safe:animate-pulse">_</span>
             </h1>
             <p className="text-lg">{roles.join(" · ")}</p>
           </div>
