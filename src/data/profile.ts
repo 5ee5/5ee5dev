@@ -19,5 +19,6 @@ export const contacts = [
 export const friends = [
   { href: "https://pre1ude.dev", src: "https://pre1ude.dev/blankie.png", alt: "pre1ude.dev", title: "Laura!" },
   { href: "https://www.gentoo.org/", src: "/gentoo.png", alt: "Gentoo Linux", title: "Gentoo!" },
+  { href: "https://archlinux.org/", src: "/arch.png", alt: "Arch Linux", title: "Arch!" },
   { href: "https://www.kernel.org/", src: "/linux.png", alt: "Linux", title: "Linux!" },
 ];
