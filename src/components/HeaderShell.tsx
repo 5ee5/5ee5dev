@@ -23,6 +23,12 @@ export default function HeaderShell({
         >
           [projects]
         </Link>
+        <Link
+          href="/blog"
+          className="text-accent-text transition-colors hover:text-foreground"
+        >
+          [blog]
+        </Link>
         {children}
       </nav>
     </header>
