@@ -20,6 +20,9 @@
 # production
 /build
 
+# runtime data (visit counter)
+/data/
+
 # misc
 .DS_Store
 *.pem

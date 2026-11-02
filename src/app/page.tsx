@@ -3,6 +3,7 @@ import profileImage from "../../public/e5.png";
 import Header from "@/components/Header";
 import CopyButton from "@/components/CopyButton";
 import FriendButtons from "@/components/FriendButtons";
+import VisitCounter from "@/components/VisitCounter";
 import Webring from "@/components/Webring";
 import { contacts, hardware, roles, tools } from "@/data/profile";
 
@@ -87,7 +88,10 @@ export default function Home() {
 
       <footer className="mx-auto flex w-full max-w-[1200px] justify-between gap-4 border-t border-edge px-8 py-3 text-[13px] text-muted narrow:px-4">
         <span>-- NORMAL --</span>
-        <span>5ee5.dev  utf-8  ln 1, col 1</span>
+        <span className="flex gap-4">
+          <VisitCounter />
+          <span>5ee5.dev  utf-8  ln 1, col 1</span>
+        </span>
       </footer>
     </>
   );
