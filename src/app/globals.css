@@ -102,6 +102,51 @@
          hover:border-accent hover:bg-accent hover:text-on-accent;
 }
 
+/* Markdown body of a blog post, rendered from HTML we don't control the tags of. */
+@utility post-body {
+  @apply leading-[1.7];
+
+  & h2 {
+    @apply mt-8 mb-3 font-display text-[40px] leading-none text-accent-text;
+  }
+  & h3 {
+    @apply mt-6 mb-2 text-[1.05rem] font-bold text-on-header;
+  }
+  & p {
+    @apply my-4;
+  }
+  & a {
+    @apply text-accent-text underline underline-offset-2 transition-colors hover:text-foreground;
+  }
+  & ul {
+    @apply my-4 list-disc pl-5;
+  }
+  & ol {
+    @apply my-4 list-decimal pl-5;
+  }
+  & li {
+    @apply my-1;
+  }
+  & code {
+    @apply border border-edge bg-raised px-1 text-[0.9em];
+  }
+  & pre {
+    @apply my-4 overflow-x-auto border border-edge bg-raised p-4;
+  }
+  & pre code {
+    @apply border-0 bg-transparent p-0;
+  }
+  & blockquote {
+    @apply my-4 border-l-2 border-accent pl-4 text-muted;
+  }
+  & hr {
+    @apply my-6 border-edge;
+  }
+  & img {
+    @apply my-4 max-w-full;
+  }
+}
+
 @utility back-link {
   @apply inline-block w-fit text-[0.95rem] text-accent-text transition
          hover:-translate-x-1 hover:text-foreground;
