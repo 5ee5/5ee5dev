@@ -12,7 +12,6 @@ export const hardware = [
 
 export const contacts = [
   { id: "discord", label: "Discord", value: "https://discord.com/users/903314598596321331" },
-  { id: "server", label: "Discord Server", value: "https://discord.gg/26mtndbezP" },
   { id: "mail", label: "Mail", value: "e5@5ee5.dev" },
 ];
 
