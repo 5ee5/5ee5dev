@@ -48,6 +48,7 @@ export default function Home() {
               key={c.id}
               value={c.value}
               label={c.label.toLowerCase()}
+              display={c.display}
               className="flex gap-2 border border-edge px-3.5 py-3 text-left text-accent-text transition-colors hover:bg-raised hover:text-foreground"
             >
               <span aria-hidden="true">&gt;</span>

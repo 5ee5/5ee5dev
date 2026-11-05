@@ -11,8 +11,8 @@ export const hardware = [
 ];
 
 export const contacts = [
-  { id: "discord", label: "Discord", value: "https://discord.com/users/903314598596321331" },
-  { id: "mail", label: "Mail", value: "e5@5ee5.dev" },
+  { id: "discord", label: "Discord", value: "https://discord.com/users/903314598596321331", display: "discord.com/users/903314598596321331" },
+  { id: "mail", label: "Mail", value: "e5@5ee5.dev", display: "e5@5ee5.dev" },
 ];
 
 /** 88x31 buttons shown beside my own copyable one. */
