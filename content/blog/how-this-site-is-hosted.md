@@ -27,7 +27,7 @@ It runs `next build` and then `pm2 restart`. The server reads the build from the
 
 If the machine is off or the tunnel is down, Cloudflare can't reach my server and shows its own error page. I wanted visitors to see something that looks like the rest of the site instead.
 
-So there's a small **Cloudflare Worker** in front of everything. It passes normal requests straight through. When Cloudflare reports that it can't reach the origin (the 520 to 530 range of errors), it returns a page styled like the rest of the site, with a `$ retry` button. It sends it with a 503 status, not a 200, so search engines don't treat it as the real page.
+So there's a small **Cloudflare Worker** in front of everything. It passes normal requests straight through. When Cloudflare reports that it can't reach the origin (a 502, or the 520 to 530 range of errors), it returns a page styled like the rest of the site, with a `$ retry` button. It sends it with a 503 status, not a 200, so search engines don't treat it as the real page.
 
 It only catches those errors. If my own app fails with a normal 500, the Worker stays out of the way and the site's own error page shows.
 

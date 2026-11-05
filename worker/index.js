@@ -1,11 +1,13 @@
 /**
  * Serves a themed offline page when Cloudflare cannot reach the origin at all
- * -- i.e. the machine or the cloudflared tunnel is down.
+ * -- i.e. the machine, the cloudflared tunnel or the app itself is down.
  *
- * Deliberately narrow: only Cloudflare's origin-unreachable class (520-530,
- * where 530 carries the 1033 "Argo Tunnel error") is intercepted. A genuine
- * 500 from Next passes straight through, because the app's own error.tsx
- * already renders a themed page for that and masking it would be a downgrade.
+ * Deliberately narrow: only 502 and Cloudflare's origin-unreachable class
+ * (520-530, where 530 carries the 1033 "Argo Tunnel error") are intercepted.
+ * 502 is what cloudflared answers when the tunnel is up but the app is not,
+ * e.g. while PM2 restarts it. A genuine 500 from Next passes straight
+ * through, because the app's own error.tsx already renders a themed page for
+ * that and masking it would be a downgrade.
  */
 
 const OFFLINE_HTML = `<!doctype html>
@@ -134,7 +136,8 @@ const worker = {
   async fetch(request) {
     try {
       const response = await fetch(request);
-      return response.status >= 520 && response.status <= 530
+      return response.status === 502 ||
+        (response.status >= 520 && response.status <= 530)
         ? offline()
         : response;
     } catch {
