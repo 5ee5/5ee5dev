@@ -1,4 +1,4 @@
-/** The pre1ude.dev webring widget, coloured to match the site. */
+/** The pre1ude.dev and our own webring widgets, coloured to match the site. */
 export default function Webring({ className = "" }: { className?: string }) {
   return (
     <div className={`w-full max-w-[400px] ${className}`}>
@@ -7,10 +7,17 @@ export default function Webring({ className = "" }: { className?: string }) {
           src="https://ring.pre1ude.dev/ring?url=https://5ee5.dev/&fgcolor=4ADE80&bgcolor=06100A"
           width="230"
           height="100"
-          title="webring"
+          title="pre1ude webring"
           className="mx-auto block h-[100px] w-2/3 origin-top scale-110"
         />
       </div>
+      <iframe
+        src="https://ring.5ee5.dev/embed?url=https://5ee5.dev&fgcolor=4ade80&bgcolor=06100a"
+        width="320"
+        height="100"
+        title="5ee5 webring"
+        className="mx-auto mt-2 block h-[100px] w-full max-w-[320px] border-0"
+      />
     </div>
   );
 }
