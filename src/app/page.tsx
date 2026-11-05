@@ -109,6 +109,9 @@ export default function Home() {
           <Link href="/guestbook" className="hover:text-foreground">
             guestbook
           </Link>
+          <Link href="/status" className="hover:text-foreground">
+            status
+          </Link>
           <span>5ee5.dev  utf-8  ln 1, col 1</span>
         </span>
       </footer>
