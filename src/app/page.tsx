@@ -112,7 +112,7 @@ export default function Home() {
           <Link href="/status" className="hover:text-foreground">
             status
           </Link>
-          <span>5ee5.dev  utf-8  ln 1, col 1</span>
+          <span className="max-sm:hidden">5ee5.dev  utf-8  ln 1, col 1</span>
         </span>
       </footer>
     </>
