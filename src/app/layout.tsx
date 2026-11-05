@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import profileImage from "../../public/e5.png";
 import blinkieImage from "../../public/5ee5.png";
+import SkipLink from "@/components/SkipLink";
 import { fontVariables } from "./fonts";
 import "./globals.css";
 
@@ -35,12 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scheme-dark overflow-x-clip ${fontVariables}`}>
       <body className="min-h-screen overflow-x-clip bg-background text-foreground">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[2000] focus:border focus:border-edge focus:bg-raised focus:px-3 focus:py-2 focus:text-accent-text"
-        >
-          Skip to content
-        </a>
+        <SkipLink />
         {children}
       </body>
     </html>

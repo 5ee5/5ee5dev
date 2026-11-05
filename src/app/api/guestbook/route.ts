@@ -1,26 +1,9 @@
 import crypto from "node:crypto";
+import { isSameOrigin } from "@/lib/origin";
 import { addEntry, deleteEntry, parseSubmission } from "@/lib/guestbook";
 
 function respond(body: Record<string, unknown>, status = 200) {
   return Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
-}
-
-/**
- * Only the site's own form should post here. Browsers send `Sec-Fetch-Site`
- * from secure contexts only (https or localhost) and older ones not at all,
- * so without it fall back to comparing `Origin` with the host.
- */
-function isSameOrigin(request: Request) {
-  const site = request.headers.get("sec-fetch-site");
-  if (site) return site === "same-origin";
-  const origin = request.headers.get("origin");
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
-  if (!origin || !host) return false;
-  try {
-    return new URL(origin).host === host;
-  } catch {
-    return false;
-  }
 }
 
 /** Signs the guestbook. Entries show immediately; there is no moderation queue. */

@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
+
+export const metadata: Metadata = {
+  title: "Page not found | 5ee5.dev",
+};
 
 export default function NotFound() {
   return (

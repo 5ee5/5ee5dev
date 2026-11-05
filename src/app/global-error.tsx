@@ -3,6 +3,7 @@
 import "./globals.css";
 import { fontVariables } from "./fonts";
 import HeaderShell from "@/components/HeaderShell";
+import SkipLink from "@/components/SkipLink";
 
 /**
  * Replaces the root layout entirely when the layout itself throws, so this file
@@ -22,6 +23,7 @@ export default function GlobalError({
       <body className="min-h-screen overflow-x-clip bg-background text-foreground">
         {/* Error boundaries cannot export metadata, so the title goes here. */}
         <title>Something went wrong | 5ee5.dev</title>
+        <SkipLink />
         <HeaderShell />
         <main id="main" className="layout max-w-[860px]">
           <section className="card p-6">
