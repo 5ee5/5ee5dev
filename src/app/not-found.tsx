@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
+import NotFoundCommand from "@/components/NotFoundCommand";
 
 export const metadata: Metadata = {
   title: "Page not found | 5ee5.dev",
@@ -15,8 +16,7 @@ export default function NotFound() {
           $ cd ~
         </Link>
         <section className="card p-6">
-          <p className="text-muted">$ cat this-page</p>
-          <p className="mt-1 mb-4">cat: this-page: No such file or directory</p>
+          <NotFoundCommand />
           <h1 className="mb-4 font-display text-[96px] leading-none text-accent-text [text-shadow:0_0_14px_rgb(74_222_128/0.4)]">
             404
           </h1>

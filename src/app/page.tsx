@@ -5,6 +5,8 @@ import profileImage from "../../public/e5.png";
 import Header from "@/components/Header";
 import CopyButton from "@/components/CopyButton";
 import FriendButtons from "@/components/FriendButtons";
+import ModeLine from "@/components/ModeLine";
+import PaletteBlocks from "@/components/PaletteBlocks";
 import VisitCounter from "@/components/VisitCounter";
 import Webring from "@/components/Webring";
 import { contacts, hardware, roles, tools } from "@/data/profile";
@@ -64,7 +66,16 @@ export default function Home() {
           <h2 className="prompt">$ which toolkit</h2>
           <ul className="grid gap-2">
             {tools.map((tool) => (
-              <li key={tool}>/usr/bin/{tool.toLowerCase()}</li>
+              <li key={tool.name} className="group relative w-fit">
+                /usr/bin/{tool.name.toLowerCase()}
+                {/* Easter egg: hover for the tool's Gentoo USE flags. */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute top-full left-0 z-10 mt-1 w-max max-w-[300px] translate-y-1 border border-edge bg-raised px-2 py-0.5 text-[13px] text-accent-text opacity-0 transition-[opacity,translate] group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:transition-none"
+                >
+                  USE=&quot;{tool.use}&quot;
+                </span>
+              </li>
             ))}
           </ul>
         </section>
@@ -79,11 +90,7 @@ export default function Home() {
               </div>
             ))}
           </dl>
-          <div aria-hidden="true" className="mt-5 flex gap-1.5">
-            {["#052e16", "#166534", "#22c55e", "#4ade80", "#bbf7d0"].map((c) => (
-              <span key={c} className="h-3.5 w-[22px]" style={{ background: c }} />
-            ))}
-          </div>
+          <PaletteBlocks />
         </section>
 
         <section className="card p-6">
@@ -96,7 +103,7 @@ export default function Home() {
       </main>
 
       <footer className="mx-auto flex w-full max-w-[1200px] justify-between gap-4 border-t border-edge px-8 py-3 text-[13px] text-muted narrow:px-4">
-        <span>-- NORMAL --</span>
+        <ModeLine />
         <span className="flex gap-4">
           <VisitCounter />
           <Link href="/guestbook" className="hover:text-foreground">

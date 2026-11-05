@@ -2,7 +2,16 @@
 
 export const roles = ["Developer", "Linux Enthusiast", "Runner"];
 
-export const tools = ["HTML", "CSS", "JS", "nodejs", "Python", "Linux", "Git"];
+/** `use` is the joke: what each tool's Gentoo USE line might look like. */
+export const tools = [
+  { name: "HTML", use: "semantic accessibility -divs" },
+  { name: "CSS", use: "flexbox grid -important" },
+  { name: "JS", use: "async -callbacks -left-pad" },
+  { name: "nodejs", use: "npm icu ssl -debug" },
+  { name: "Python", use: "ensurepip ncurses readline sqlite ssl -tk" },
+  { name: "Linux", use: "symlink experimental -build -systemd" },
+  { name: "Git", use: "curl pcre perl -gtk" },
+];
 
 export const hardware = [
   { kind: "laptop", label: "Lenovo Ideapad Gaming 3" },
