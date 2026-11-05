@@ -54,7 +54,6 @@ export default function Home() {
               <span aria-hidden="true">&gt;</span>
             </CopyButton>
           ))}
-          <span className="text-[13px] text-muted">click to copy</span>
         </section>
 
         <section className="card p-6">
