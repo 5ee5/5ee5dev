@@ -7,7 +7,10 @@ import { getAllPosts } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "Blog | 5ee5.dev",
   description: "Notes on self-hosting, Linux and the things I build.",
-  alternates: { canonical: "/blog" },
+  alternates: {
+    canonical: "/blog",
+    types: { "application/rss+xml": "/blog/rss.xml" },
+  },
 };
 
 export default function BlogPage() {
@@ -22,7 +25,15 @@ export default function BlogPage() {
         </Link>
 
         <div>
-          <p className="text-muted">$ ls ~/blog</p>
+          <p className="text-muted">
+            $ ls ~/blog{" "}
+            <a
+              href="/blog/rss.xml"
+              className="text-accent-text transition-colors hover:text-foreground"
+            >
+              [rss]
+            </a>
+          </p>
           <h1 className="font-display text-[72px] leading-none text-accent-text [text-shadow:0_0_14px_rgb(74_222_128/0.4)]">
             blog/
           </h1>

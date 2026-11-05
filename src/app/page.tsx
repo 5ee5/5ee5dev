@@ -10,7 +10,10 @@ import Webring from "@/components/Webring";
 import { contacts, hardware, roles, tools } from "@/data/profile";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": "/blog/rss.xml" },
+  },
 };
 
 export default function Home() {
