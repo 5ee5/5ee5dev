@@ -39,6 +39,20 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "loopback",
+    title: "Loopback",
+    description: "A small webring for personal websites.",
+    tech: ["Next.js", "TypeScript", "SQLite", "Drizzle"],
+    github: "https://github.com/5ee5/loopback",
+    url: "https://ring.5ee5.dev",
+    highlights: [
+      "Previous, next and random links that skip members who are no longer active",
+      "Embeds as a tiny no-dependency widget or a one-line iframe with no JavaScript",
+      "Applications are reviewed by hand in an admin area with an append-only audit log",
+      "Self-hosted with PM2 behind a Cloudflare Tunnel, in a black-and-white terminal theme",
+    ],
+  },
+  {
     slug: "5ee5chat",
     title: "5ee5chat",
     description: "A simple chat application.",
@@ -62,19 +76,6 @@ export const projects: Project[] = [
       "Turn-based combat",
       "Loot system",
       "ncurses terminal interface",
-    ],
-  },
-  {
-    slug: "spotistats",
-    title: "Spotistats",
-    description: "Spotify statistics tracker.",
-    tech: ["Python", "Spotify API", "pandas"],
-    github: "https://github.com/5ee5/Spotistats",
-    highlights: [
-      "Pulls top artists and tracks over three timeframes from the Spotify Web API",
-      "Also captures recently played tracks",
-      "Writes clean JSON per timeframe, overwritten on each run",
-      "Credentials read from a .env file; runs silently by default",
     ],
   },
 ];
