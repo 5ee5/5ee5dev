@@ -43,7 +43,7 @@ export default async function PostPage({ params }: { params: Params }) {
   return (
     <>
       <Header />
-      <main className="layout max-w-[860px]">
+      <main id="main" className="layout max-w-[860px]">
         <Link href="/blog" className="back-link">
           $ cd ..
         </Link>

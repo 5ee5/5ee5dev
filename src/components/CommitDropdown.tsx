@@ -50,7 +50,6 @@ export default function CommitDropdown({
         className="cursor-pointer border border-edge bg-transparent px-3 py-1.5 text-sm text-accent-text transition-colors hover:bg-raised hover:text-foreground focus-visible:bg-raised focus-visible:text-foreground"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
-        aria-haspopup="true"
       >
         git log -1 ▾
       </button>
@@ -58,7 +57,7 @@ export default function CommitDropdown({
       {isOpen && (
         <div className="absolute top-[calc(100%+8px)] right-0 z-[1000] max-w-[320px] min-w-[260px] border border-edge bg-raised p-2.5 text-left break-words shadow-[0_8px_24px_rgba(0,0,0,0.5)]">
           {!commit && (
-            <small className="text-[11px] text-muted">No commit found</small>
+            <small className="text-xs text-muted">No commit found</small>
           )}
 
           {commit && (
@@ -73,7 +72,7 @@ export default function CommitDropdown({
                 {commitMessage}
               </span>
               <br />
-              <small className="text-[11px] text-muted">
+              <small className="text-xs text-muted">
                 {formatRelativeTime(commit.date)} (
                 {commit.date
                   ? new Date(commit.date).toLocaleTimeString([], {

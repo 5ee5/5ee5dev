@@ -23,7 +23,7 @@ export default function GlobalError({
         {/* Error boundaries cannot export metadata, so the title goes here. */}
         <title>Something went wrong | 5ee5.dev</title>
         <HeaderShell />
-        <main className="layout max-w-[860px]">
+        <main id="main" className="layout max-w-[860px]">
           <section className="card p-6">
             <p className="text-muted">$ ./5ee5.dev</p>
             <p className="mt-1 mb-4">Segmentation fault (core dumped)</p>

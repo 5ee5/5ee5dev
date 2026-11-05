@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <main className="layout max-w-[860px]">
+      <main id="main" className="layout max-w-[860px]">
         <Link href="/" className="back-link">
           $ cd ~
         </Link>

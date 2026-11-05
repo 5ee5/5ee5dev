@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Header />
 
-      <main className="layout grid-cols-3 narrow:grid-cols-1">
+      <main id="main" className="layout grid-cols-3 narrow:grid-cols-1">
         <section className="card col-span-2 flex items-center gap-9 p-6 narrow:col-span-1 narrow:flex-col narrow:items-start">
           <Image
             src={profileImage}

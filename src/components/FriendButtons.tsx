@@ -37,26 +37,38 @@ function MyBlinkie({ className = "" }: { className?: string }) {
     setTimeout(() => setStatus(null), ok ? 3000 : 2500);
   };
 
-  return !status ? (
+  const message = status === "ok" ? "Copied!" : "Copy failed";
+
+  return (
     <Tip text="Me! (click to copy)">
-      <Image
-        src={blinkieImage}
-        width={88}
-        height={31}
-        alt="5ee5 Blinkie"
+      {/* A real button so keyboard users can copy too, and it stays mounted
+          while showing the result so focus isn't lost. */}
+      <button
+        type="button"
         onClick={handleCopy}
-        className={`${blinkieClass} ${className}`}
-        draggable={false}
-        unoptimized
-      />
+        aria-label="Copy my blinkie's embed code"
+        className="cursor-pointer"
+      >
+        {!status ? (
+          <Image
+            src={blinkieImage}
+            width={88}
+            height={31}
+            alt=""
+            className={`${blinkieClass} ${className}`}
+            draggable={false}
+            unoptimized
+          />
+        ) : (
+          <span className="my-[0.95rem] block text-[0.95rem] font-bold text-accent-text">
+            {message}
+          </span>
+        )}
+      </button>
+      <span role="status" className="sr-only">
+        {status ? message : ""}
+      </span>
     </Tip>
-  ) : (
-    <p
-      aria-live="polite"
-      className="my-[0.95rem] text-[0.95rem] font-bold text-accent-text"
-    >
-      {status === "ok" ? "Copied!" : "Copy failed"}
-    </p>
   );
 }
 

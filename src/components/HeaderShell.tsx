@@ -16,7 +16,7 @@ export default function HeaderShell({
         5ee5<span className="text-muted max-sm:hidden">@gentoo:~$</span>
       </Link>
 
-      <nav className="flex items-center gap-4">
+      <nav aria-label="Main" className="flex items-center gap-4">
         <Link
           href="/projects"
           className="text-accent-text transition-colors hover:text-foreground"

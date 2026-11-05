@@ -15,7 +15,7 @@ export default function ProjectsPage() {
   return (
     <>
       <Header />
-      <main className="layout">
+      <main id="main" className="layout">
         <Link href="/" className="back-link">
           $ cd ~
         </Link>

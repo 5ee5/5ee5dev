@@ -51,7 +51,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
   return (
     <>
       <Header />
-      <main className="layout max-w-[860px]">
+      <main id="main" className="layout max-w-[860px]">
         <Link href="/projects" className="back-link">
           $ cd ..
         </Link>

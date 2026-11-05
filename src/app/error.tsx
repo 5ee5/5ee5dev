@@ -19,7 +19,7 @@ export default function Error({
       {/* HeaderShell, not Header: a client boundary cannot import the async
           server component LatestCommit that Header renders. */}
       <HeaderShell />
-      <main className="layout max-w-[860px]">
+      <main id="main" className="layout max-w-[860px]">
         <section className="card p-6">
           <p className="text-muted">$ ./5ee5.dev</p>
           <p className="mt-1 mb-4">Segmentation fault (core dumped)</p>
