@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import profileImage from "../../public/e5.png";
 import Header from "@/components/Header";
 import CopyButton from "@/components/CopyButton";
@@ -95,6 +96,9 @@ export default function Home() {
         <span>-- NORMAL --</span>
         <span className="flex gap-4">
           <VisitCounter />
+          <Link href="/guestbook" className="hover:text-foreground">
+            guestbook
+          </Link>
           <span>5ee5.dev  utf-8  ln 1, col 1</span>
         </span>
       </footer>
