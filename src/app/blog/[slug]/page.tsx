@@ -48,7 +48,7 @@ export default async function PostPage({ params }: { params: Params }) {
           $ cd ..
         </Link>
 
-        <article className="card p-6">
+        <article className="card min-w-0 p-6">
           <p className="text-muted">$ cat ~/blog/{post.slug}.md</p>
           <h1 className="mt-2 mb-2 font-display text-[64px] leading-none text-accent-text [text-shadow:0_0_14px_rgb(74_222_128/0.4)]">
             {post.title}

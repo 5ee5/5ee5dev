@@ -21,7 +21,9 @@ export default function TerminalJoke({
         <Link href="/" className="back-link">
           $ cd ~
         </Link>
-        <section className="card p-6">
+        {/* min-w-0: a grid item won't shrink below its content, so without it the
+            unwrapped lscpu lines would widen the whole page on a phone. */}
+        <section className="card min-w-0 p-6">
           <p className="text-muted">$ {command}</p>
           <p
             className={`mt-1 mb-4 ${preformatted ? "overflow-x-auto whitespace-pre" : ""}`}
