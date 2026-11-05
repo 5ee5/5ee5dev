@@ -1,9 +1,41 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { marked } from "marked";
+import { Marked } from "marked";
 
 const POSTS_DIR = path.join(process.cwd(), "content/blog");
+
+const escapeAttr = (s: string) =>
+  s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
+/**
+ * Images go in `public/blog/` and are written `![alt text](/blog/name.png)`.
+ * An optional title, `![alt](/blog/name.png "A caption")`, becomes a caption
+ * under the image. They load lazily so a long post doesn't fetch them all up
+ * front.
+ */
+const markdown = new Marked({
+  renderer: {
+    image({ href, title, text }) {
+      const caption = title ? ` title="${escapeAttr(title)}"` : "";
+      return `<img src="${escapeAttr(href)}" alt="${escapeAttr(text)}"${caption} loading="lazy" decoding="async">`;
+    },
+    // A paragraph that is only an image becomes a <figure>. Nesting one in a
+    // <p> isn't valid HTML.
+    paragraph({ tokens }) {
+      const [only] = tokens;
+      if (tokens.length !== 1 || only.type !== "image") return false;
+      const caption = only.title
+        ? `<figcaption>${escapeAttr(only.title)}</figcaption>`
+        : "";
+      return `<figure>${this.parser.parseInline(tokens)}${caption}</figure>\n`;
+    },
+  },
+});
 
 export type PostMeta = {
   slug: string;
@@ -57,7 +89,7 @@ function readPost(file: string): Post {
     ).getTime(),
     summary: typeof data.summary === "string" ? data.summary : "",
     draft: data.draft === true,
-    html: marked.parse(content, { async: false }),
+    html: markdown.parse(content, { async: false }),
   };
 }
 
