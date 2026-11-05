@@ -5,8 +5,10 @@ import { fontVariables } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://5ee5.dev"),
   title: "5ee5.dev | Personal Portfolio",
-  description: "Developer, Linux enthusiast, Runner.",
+  /* Deliberately differs from openGraph.description below, which the webring reads. */
+  description: "Personal site of 5ee5",
   icons: {
     icon: "/e5.ico",
   },

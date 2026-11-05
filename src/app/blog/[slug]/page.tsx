@@ -30,6 +30,7 @@ export async function generateMetadata({
   return {
     title: `${post.title} | 5ee5.dev`,
     description: post.summary || undefined,
+    alternates: { canonical: `/blog/${post.slug}` },
   };
 }
 

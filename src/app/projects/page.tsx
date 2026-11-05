@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Projects | 5ee5.dev",
   description:
     "Browse all open-source software, operating system, and web development projects by 5ee5.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {

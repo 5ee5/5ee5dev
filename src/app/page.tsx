@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import profileImage from "../../public/e5.png";
 import Header from "@/components/Header";
@@ -6,6 +7,10 @@ import FriendButtons from "@/components/FriendButtons";
 import VisitCounter from "@/components/VisitCounter";
 import Webring from "@/components/Webring";
 import { contacts, hardware, roles, tools } from "@/data/profile";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
