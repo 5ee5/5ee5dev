@@ -27,6 +27,7 @@ export const contacts = [
 /** 88x31 buttons shown beside my own copyable one. */
 export const friends = [
   { href: "https://pre1ude.dev", src: "https://pre1ude.dev/blankie.png", alt: "pre1ude.dev", title: "Laura!" },
+  { href: "https://ring.5ee5.dev", src: "https://ring.5ee5.dev/button/88x31.svg", alt: "Loopback webring", title: "Loopback!" },
   { href: "https://www.gentoo.org/", src: "/gentoo.png", alt: "Gentoo Linux", title: "Gentoo!" },
   { href: "https://archlinux.org/", src: "/arch.png", alt: "Arch Linux", title: "Arch!" },
   { href: "https://www.mozilla.org/firefox/", src: "/firefox.gif", alt: "Firefox", title: "Firefox!" },
