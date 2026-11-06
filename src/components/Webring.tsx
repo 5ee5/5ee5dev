@@ -13,10 +13,10 @@ export default function Webring({ className = "" }: { className?: string }) {
       </div>
       <iframe
         src="https://ring.5ee5.dev/embed?url=https://5ee5.dev&fgcolor=4ade80&bgcolor=06100a"
-        width="320"
-        height="100"
+        width="280"
+        height="88"
         title="Loopback webring"
-        className="mx-auto mt-2 block h-[100px] w-full max-w-[320px] border-0"
+        className="mx-auto mt-2 block h-[88px] w-full max-w-[280px] border-0"
       />
     </div>
   );
