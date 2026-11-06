@@ -10,8 +10,7 @@ This site doesn't live on a hosting platform. It runs on a Xeon E5-2680 v4 at ho
 
 - **Next.js** builds the site. Most pages, including the project pages, are generated ahead of time as static HTML.
 - **PM2** keeps the Next server running and restarts it after a crash or a deploy.
-- **nginx** sits in front of it.
-- **A Cloudflare Tunnel** connects the machine to the internet. The tunnel makes an outbound connection to Cloudflare, so I don't open any ports on my router or expose my home IP address.
+- **A Cloudflare Tunnel** connects the machine to the internet and points straight at the Next server. The tunnel makes an outbound connection to Cloudflare, so I don't open any ports on my router or expose my home IP address.
 
 ## Deploying
 

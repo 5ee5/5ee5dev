@@ -46,7 +46,7 @@ The schema enforces most of the rules itself. URLs, name lengths, statuses and t
 
 ## Hosting
 
-It's hosted much like this site: PM2 on the same machine, behind a Cloudflare Tunnel. I wrote about that in [how this site is hosted](/blog/how-this-site-is-hosted). The difference is that the tunnel goes straight to the app, with no nginx in between. It's a separate process and a separate database from the dev copy, so running tests can't touch live data.
+It's hosted the same way as this site: PM2 on the same machine, with a Cloudflare Tunnel pointing straight at the app. I wrote about that in [how this site is hosted](/blog/how-this-site-is-hosted). It's a separate process and a separate database from the dev copy, so running tests can't touch live data.
 
 ## Join
 
