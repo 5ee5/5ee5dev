@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import { isSameOrigin } from "@/lib/origin";
 import { addEntry, deleteEntry, parseSubmission } from "@/lib/guestbook";
+import { allow, clientIp } from "@/lib/rate-limit";
 
 function respond(body: Record<string, unknown>, status = 200) {
   return Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
@@ -11,6 +12,13 @@ export async function POST(request: Request) {
   try {
     if (!isSameOrigin(request)) {
       return respond({ error: "Forbidden." }, 403);
+    }
+    // Five attempts per ten minutes per visitor, however they turn out.
+    if (!allow(`guestbook:${clientIp(request)}`, 5, 10 * 60_000)) {
+      return Response.json(
+        { error: "You're signing too fast. Try again in a few minutes." },
+        { status: 429, headers: { "Cache-Control": "no-store", "Retry-After": "600" } }
+      );
     }
     if (Number(request.headers.get("content-length") ?? 0) > 4096) {
       return respond({ error: "That's too much text." }, 413);

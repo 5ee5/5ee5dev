@@ -1,4 +1,5 @@
 import { isSameOrigin } from "@/lib/origin";
+import { allow, clientIp } from "@/lib/rate-limit";
 import { addVisit, getVisits } from "@/lib/visits";
 
 const BOTS = /bot|crawl|spider|slurp|facebookexternalhit|preview|headless/i;
@@ -26,7 +27,10 @@ export async function POST(request: Request) {
     // Only the site's own pages count, which keeps casual abuse out.
     const sameOrigin = isSameOrigin(request);
     const bot = BOTS.test(request.headers.get("user-agent") ?? "");
-    return respond(sameOrigin && !bot ? await addVisit() : await getVisits());
+    // One count per visitor per hour; a repeat just reads the current total.
+    const counts =
+      sameOrigin && !bot && allow(`visits:${clientIp(request)}`, 1, 60 * 60_000);
+    return respond(counts ? await addVisit() : await getVisits());
   } catch (err) {
     console.error(err);
     return respond(null, 500);
