@@ -46,8 +46,14 @@ jobs:
         run: npm run lint
 
       # Build and PM2 restart in one command; never build without restarting.
+      # `pm2 restart --update-env` copies this shell's environment into the app,
+      # and the runner's GITHUB_TOKEN is a Forgejo job token that api.github.com
+      # rejects with 401. Drop the runner's own variables (and the tokens among
+      # them) so they never reach the production process.
       - name: Build and restart
-        run: npm run deploy
+        run: |
+          for v in $(env | grep -oE '^(GITHUB|FORGEJO|GITEA|ACTIONS|RUNNER)_[A-Z_]*'); do unset "$v"; done
+          npm run deploy
 
       - name: Health check
         run: |
