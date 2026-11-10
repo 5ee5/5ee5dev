@@ -9,7 +9,7 @@ export const services = [
   {
     id: "websites",
     title: "Landing pages and websites",
-    price: "€99",
+    price: "€149",
     unit: "",
     description:
       "Fast, responsive sites built with Next.js, React, TypeScript and modern web technologies.",
@@ -17,7 +17,7 @@ export const services = [
   {
     id: "apps",
     title: "Web applications",
-    price: "€149",
+    price: "€299",
     unit: "",
     description:
       "Custom functionality and full-stack applications, shaped around what your project needs.",
@@ -25,7 +25,7 @@ export const services = [
   {
     id: "linux",
     title: "Linux and deployment assistance",
-    price: "€30",
+    price: "€49",
     unit: "",
     description:
       "Linux administration, Docker, hosting and deployment: getting your project online and keeping it running.",
@@ -33,10 +33,11 @@ export const services = [
   {
     id: "maintenance",
     title: "Website maintenance",
-    price: "€29",
+    price: "€39",
     unit: "/month",
     description:
       "Bug fixes, updates and improvements for an existing site or application.",
+    note: "Includes up to 1 hour of minor changes per month.",
   },
 ];
 

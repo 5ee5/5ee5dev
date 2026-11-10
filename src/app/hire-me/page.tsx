@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import { hireEmail, mailtoHref, services, steps } from "@/data/hire";
 
 const description =
-  "Freelance web development and technical services by 5ee5: websites from €99, web applications from €149, Linux and deployment help from €30.";
+  "Freelance web development and technical services by 5ee5: introductory prices from €149 for websites, €299 for web applications and €49 for Linux and deployment help.";
 
 export const metadata: Metadata = {
   title: "Hire Me | 5ee5.dev",
@@ -64,6 +64,9 @@ export default function HireMePage() {
                 <p className="text-[0.95rem] leading-[1.6] text-muted">
                   {s.description}
                 </p>
+                {s.note && (
+                  <p className="text-[0.85rem] text-on-header">{s.note}</p>
+                )}
                 <p className="mt-auto border-t border-edge pt-3">
                   <span className="text-[0.85rem] text-muted">from </span>
                   <span className="font-display text-[40px] leading-none text-accent-text">
@@ -74,10 +77,17 @@ export default function HireMePage() {
               </li>
             ))}
           </ul>
-          <p className="text-[0.9rem] text-muted">
-            These are starting prices. The final price depends on your
-            project&apos;s requirements and is agreed before work begins.
-          </p>
+          <ul className="grid list-disc gap-1 pl-5 text-[0.9rem] text-muted">
+            <li>These are introductory starting prices, not fixed rates.</li>
+            <li>
+              Final quotes depend on project scope and complexity, and are
+              agreed before work begins.
+            </li>
+            <li>Larger projects are quoted individually.</li>
+            <li>
+              Hosting, domains and third-party service costs are not included.
+            </li>
+          </ul>
         </section>
 
         <section aria-labelledby="how" className="grid gap-4">
