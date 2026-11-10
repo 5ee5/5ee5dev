@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${BASE}/` },
     { url: `${BASE}/projects` },
+    { url: `${BASE}/hire-me` },
     // Only dates the site can state truthfully: the blog changes with its posts.
     {
       url: `${BASE}/blog`,

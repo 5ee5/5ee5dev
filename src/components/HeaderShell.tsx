@@ -29,6 +29,12 @@ export default function HeaderShell({
         >
           [blog]
         </Link>
+        <Link
+          href="/hire-me"
+          className="text-accent-text transition-colors hover:text-foreground"
+        >
+          [hire me]
+        </Link>
         {children}
       </nav>
     </header>
