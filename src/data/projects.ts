@@ -53,15 +53,17 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "5ee5chat",
-    title: "5ee5chat",
-    description: "A simple chat application.",
-    tech: ["JavaScript", "Express", "Socket.IO", "Redis"],
-    github: "https://github.com/5ee5/5ee5chat",
+    slug: "esp32-snake",
+    title: "ESP32 Snake",
+    description:
+      "A self-playing Snake for an ESP32-C3 with a tiny 72x40 OLED. It never crashes and fills the whole board.",
+    tech: ["C++", "ESP32-C3", "PlatformIO", "SSD1306"],
+    github: "https://github.com/5ee5/esp32-snake",
     highlights: [
-      "Real-time messaging over Socket.IO on an Express server",
-      "Redis-backed history, trimmed to the last 100 messages",
-      "Per-connection rate limiting and username/message length caps",
+      "Follows a Hamiltonian cycle, so the snake can never run into itself",
+      "The cycle changes shape each step, with shortcuts that stay safe, to fill the board in about 9 minutes",
+      "Best time is saved in flash and survives reboots",
+      "A desktop simulator runs the real game logic over hundreds of games to catch collisions and stalls",
     ],
   },
   {
