@@ -9,35 +9,40 @@ export const services = [
   {
     id: "websites",
     title: "Landing pages and websites",
-    price: "€149",
+    price: "€349",
     unit: "",
+    from: true,
     description:
       "Fast, responsive sites built with Next.js, React, TypeScript and modern web technologies.",
   },
   {
     id: "apps",
     title: "Web applications",
-    price: "€299",
+    price: "€799",
     unit: "",
+    from: true,
     description:
       "Custom functionality and full-stack applications, shaped around what your project needs.",
   },
   {
     id: "linux",
     title: "Linux and deployment assistance",
-    price: "€49",
-    unit: "",
+    price: "€35",
+    unit: "/hour",
+    from: false,
     description:
       "Linux administration, Docker, hosting and deployment: getting your project online and keeping it running.",
+    note: "One-hour minimum per engagement.",
   },
   {
     id: "maintenance",
     title: "Website maintenance",
-    price: "€39",
+    price: "€49",
     unit: "/month",
+    from: false,
     description:
       "Bug fixes, updates and improvements for an existing site or application.",
-    note: "Includes up to 1 hour of minor changes per month.",
+    note: "Includes 1 hour of changes per month. Extra hours are billed at €35/hour.",
   },
 ];
 

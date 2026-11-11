@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import { hireEmail, mailtoHref, services, steps } from "@/data/hire";
 
 const description =
-  "Freelance web development and technical services by 5ee5: introductory prices from €149 for websites, €299 for web applications and €49 for Linux and deployment help.";
+  "Freelance web development and technical services by 5ee5: introductory prices from €349 for websites, €799 for web applications and €35/hour for Linux and deployment help.";
 
 export const metadata: Metadata = {
   title: "Hire Me | 5ee5.dev",
@@ -68,7 +68,9 @@ export default function HireMePage() {
                   <p className="text-[0.85rem] text-on-header">{s.note}</p>
                 )}
                 <p className="mt-auto border-t border-edge pt-3">
-                  <span className="text-[0.85rem] text-muted">from </span>
+                  {s.from && (
+                    <span className="text-[0.85rem] text-muted">from </span>
+                  )}
                   <span className="font-display text-[40px] leading-none text-accent-text">
                     {s.price}
                   </span>
@@ -78,7 +80,10 @@ export default function HireMePage() {
             ))}
           </ul>
           <ul className="grid list-disc gap-1 pl-5 text-[0.9rem] text-muted">
-            <li>These are introductory starting prices, not fixed rates.</li>
+            <li>
+              Website and application prices are introductory starting prices,
+              not fixed rates.
+            </li>
             <li>
               Final quotes depend on project scope and complexity, and are
               agreed before work begins.
