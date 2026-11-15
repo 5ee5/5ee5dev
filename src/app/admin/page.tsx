@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TerminalJoke from "@/components/TerminalJoke";
 
 export const metadata: Metadata = {
-  title: "Permission denied | 5ee5.dev",
+  title: "Permission denied",
   robots: { index: false, follow: false },
 };
 

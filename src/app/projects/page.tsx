@@ -5,7 +5,7 @@ import { projects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 
 export const metadata: Metadata = {
-  title: "Projects | 5ee5.dev",
+  title: "Projects",
   description:
     "Browse all open-source software, operating system, and web development projects by 5ee5.",
   alternates: { canonical: "/projects" },

@@ -5,7 +5,7 @@ import PostDate from "@/components/PostDate";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog | 5ee5.dev",
+  title: "Blog",
   description: "Notes on self-hosting, Linux and the things I build.",
   alternates: {
     canonical: "/blog",
