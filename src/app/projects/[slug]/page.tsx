@@ -28,12 +28,12 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Project Not Found | 5ee5.dev",
+      title: "Project Not Found",
     };
   }
 
   return {
-    title: `${project.title} | 5ee5.dev`,
+    title: project.title,
     description: project.description,
     alternates: { canonical: `/projects/${project.slug}` },
   };

@@ -7,7 +7,7 @@ const description =
   "Freelance web development and technical services by 5ee5: introductory prices from €349 for websites, €799 for web applications and €35/hour for Linux and deployment help.";
 
 export const metadata: Metadata = {
-  title: "Hire Me | 5ee5.dev",
+  title: "Hire Me",
   description,
   alternates: { canonical: "/hire-me" },
   openGraph: {

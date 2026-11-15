@@ -7,7 +7,7 @@ import PostDate from "@/components/PostDate";
 import { getEntries } from "@/lib/guestbook";
 
 export const metadata: Metadata = {
-  title: "Guestbook | 5ee5.dev",
+  title: "Guestbook",
   description: "Leave a message on 5ee5.dev.",
   alternates: { canonical: "/guestbook" },
   // Anyone can post here, so keep it out of search results.

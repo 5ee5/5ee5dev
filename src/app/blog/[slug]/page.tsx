@@ -24,11 +24,11 @@ export async function generateMetadata({
   const post = getPost(slug);
 
   if (!post) {
-    return { title: "Post Not Found | 5ee5.dev" };
+    return { title: "Post Not Found" };
   }
 
   return {
-    title: `${post.title} | 5ee5.dev`,
+    title: post.title,
     description: post.summary || undefined,
     alternates: { canonical: `/blog/${post.slug}` },
   };

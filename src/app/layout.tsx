@@ -2,12 +2,13 @@ import type { Metadata, Viewport } from "next";
 import profileImage from "../../public/e5.png";
 import blinkieImage from "../../public/5ee5.png";
 import SkipLink from "@/components/SkipLink";
+import TabTitleBlink from "@/components/TabTitleBlink";
 import { fontVariables } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://5ee5.dev"),
-  title: "5ee5.dev | Personal Portfolio",
+  title: "5ee5dev",
   /* Deliberately differs from openGraph.description below, which the webring reads. */
   description: "Personal site of 5ee5",
   icons: {
@@ -37,6 +38,7 @@ export default function RootLayout({
     <html lang="en" className={`scheme-dark overflow-x-clip ${fontVariables}`}>
       <body className="min-h-screen overflow-x-clip bg-background text-foreground">
         <SkipLink />
+        <TabTitleBlink />
         {children}
       </body>
     </html>

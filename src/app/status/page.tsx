@@ -6,7 +6,7 @@ import StatusPanel from "@/components/StatusPanel";
 import { getStatus } from "@/lib/status";
 
 export const metadata: Metadata = {
-  title: "Status | 5ee5.dev",
+  title: "Status",
   description: "Live numbers from the home server running this site.",
   alternates: { canonical: "/status" },
   // The numbers change every few seconds, so there's nothing to index.

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TerminalJoke from "@/components/TerminalJoke";
 
 export const metadata: Metadata = {
-  title: "e5 | 5ee5.dev",
+  title: "e5",
   robots: { index: false, follow: false },
 };
 
