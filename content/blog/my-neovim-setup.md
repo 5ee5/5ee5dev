@@ -5,7 +5,6 @@ summary: "A look at my Neovim workflow on Gentoo Linux, from LazyVim and Git int
 draft: false
 ---
 
-# My Neovim Setup
 
 I've been gradually moving away from traditional code editors and building a development workflow around Neovim.
 
@@ -13,7 +12,7 @@ What started as an experiment has turned into a pretty capable development envir
 
 Here's a look at how I've put everything together.
 
-![Neovim running on Xen with the Tokyo Night colorscheme](/images/blog/neovim/overview.png)
+![Neovim running on Xen with the Tokyo Night colorscheme](/blog/neovim/overview.png)
 
 ## The environment
 
@@ -81,7 +80,7 @@ The which-key menu is also particularly useful. Pressing Space and waiting displ
 
 The Snacks Explorer gives me a quick way to browse the project without leaving the editor.
 
-![LazyVim Snacks Explorer showing the project tree](/images/blog/neovim/file-explorer.png)
+![LazyVim Snacks Explorer showing the project tree](/blog/neovim/file-explorer.png)
 
 ## Searching with ripgrep
 
@@ -128,7 +127,7 @@ Space gg
 
 From there, I can review diffs, stage files, create commits, pull changes, and push to remote repositories.
 
-![Lazygit running in the terminal](/images/blog/neovim/lazygit.png)
+![Lazygit running in the terminal](/blog/neovim/lazygit.png)
 
 It gives me a visual Git interface without having to leave my terminal workflow.
 
