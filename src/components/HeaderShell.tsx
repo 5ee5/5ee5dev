@@ -33,7 +33,7 @@ export default function HeaderShell({
           href="/hire-me"
           className="text-accent-text transition-colors hover:text-foreground"
         >
-          [hire me]
+          [hire-me]
         </Link>
         {children}
       </nav>
