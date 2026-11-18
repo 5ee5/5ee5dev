@@ -17,7 +17,7 @@ This site doesn't live on a hosting platform. It runs on a Xeon E5-2680 v4 at ho
 A deploy is one command:
 
 ```bash
-npm run deploy
+pnpm run deploy
 ```
 
 It runs `next build` and then `pm2 restart`. The server reads the build from the working copy, so a build that isn't followed by a restart can leave the site half-updated. That's why the two steps are chained in one script.
