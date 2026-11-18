@@ -25,8 +25,6 @@ ${ansi.green}${ansi.bold}
    ╚════██║██╔══╝  ██╔══╝  ╚════██║
    ███████║███████╗███████╗███████║
    ╚══════╝╚══════╝╚══════╝╚══════╝
-${ansi.reset}
-  ${ansi.muted}PERSONAL TERMINAL INTERFACE  //  5EE5.DEV${ansi.reset}
 
 ${rule}
 
