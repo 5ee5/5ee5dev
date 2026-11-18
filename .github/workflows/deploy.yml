@@ -1,0 +1,78 @@
+
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux, x64, production]
+
+    defaults:
+      run:
+        working-directory: /home/e5/5ee5dev
+
+    steps:
+      - name: Check working copy is safe to deploy from
+        run: |
+          branch=$(git rev-parse --abbrev-ref HEAD)
+
+          if [ "$branch" != "main" ]; then
+            echo "Working copy is on '$branch', not main." >&2
+            exit 1
+          fi
+
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Working copy has uncommitted changes." >&2
+            git status --short >&2
+            exit 1
+          fi
+
+      - name: Pull from GitHub
+        run: git pull --ff-only origin main
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build and restart
+        shell: bash
+        run: |
+          while IFS='=' read -r name _; do
+            case "$name" in
+              GITHUB_*|FORGEJO_*|GITEA_*|ACTIONS_*|RUNNER_*)
+                unset "$name"
+                ;;
+            esac
+          done < <(env)
+
+          npm run deploy
+
+      - name: Health check
+        run: |
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/ || true)
+
+            if [ "$code" = "200" ]; then
+              echo "OK"
+              exit 0
+            fi
+
+            sleep 2
+          done
+
+          echo "Health check failed (last status: $code)" >&2
+          exit 1
+
