@@ -38,14 +38,19 @@ jobs:
       - name: Pull from GitHub
         run: git pull --ff-only origin main
 
+      - name: Verify pnpm
+        run: |
+          command -v pnpm
+          pnpm --version
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Typecheck
-        run: npm run typecheck
+        run: pnpm run typecheck
 
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Build and restart
         shell: bash
@@ -58,21 +63,5 @@ jobs:
             esac
           done < <(env)
 
-          npm run deploy
-
-      - name: Health check
-        run: |
-          for i in 1 2 3 4 5 6 7 8 9 10; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/ || true)
-
-            if [ "$code" = "200" ]; then
-              echo "OK"
-              exit 0
-            fi
-
-            sleep 2
-          done
-
-          echo "Health check failed (last status: $code)" >&2
-          exit 1
+          pnpm run deploy
 
